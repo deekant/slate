@@ -1,0 +1,2364 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Kill Bill</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+
+  </head>
+
+  <body class="payment-method" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+    <div class="loader-wrapper">
+      <div id="loading"></div>           
+    </div>
+    <script>
+      $(window).on('load',function(){
+        $('.loader-wrapper').hide();
+      });
+    </script>
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#payment-method" class="toc-h1 toc-link" data-title="Payment Method">Payment Method</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#payment-method-resource" class="toc-h2 toc-link" data-title="Payment Method Resource">Payment Method Resource</a>
+                  </li>
+                  <li>
+                    <a href="#payment-methods" class="toc-h2 toc-link" data-title="Payment Methods">Payment Methods</a>
+                  </li>
+                  <li>
+                    <a href="#list-and-search" class="toc-h2 toc-link" data-title="List and Search">List and Search</a>
+                  </li>
+                  <li>
+                    <a href="#custom-fields" class="toc-h2 toc-link" data-title="Custom Fields">Custom Fields</a>
+                  </li>
+                  <li>
+                    <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='payment-method'>Payment Method</h1><h2 id='payment-method-resource'>Payment Method Resource</h2>
+<p>The <code>Payment Method</code> resource represents the payment methods associated with a customer <code>Account</code>. There are two parts to the state associated with this resource, a first generic set of attributes kept by Kill Bill core subsystem, and another set of attributes kept at the (payment) plugin level.</p>
+
+<ul>
+<li>The core Kill Bill attributes shown below mostly track the associated payment plugin that is used to interact with the payment gateway.</li>
+<li>The plugin attributes are typically the details about such customer payment method: In the case of a credit card for instance, the plugin would keep track of things like <code>name</code>, <code>address</code>, <code>last4</code>, and <code>token</code>. Not only are such attributes dependent on the payment method, but they are also dependent on the third party payment gateway, and on the tokenization model, which is why they are kept by the plugin (internal tables), and not by the Kill Bill core payment subsystem.</li>
+</ul>
+
+<p>Kill Bill also supports a more advanced use case for payment routing, where the choice of the payment gateway is decided at run time
+based on custom business rules. Additional information can be found in our <a href="http://docs.killbill.io/latest/userguide_payment.html">Payment Manual</a>.</p>
+
+<p>The Kill Bill attributes are the following:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Generated by</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>paymentMethodId</strong></td>
+<td>string</td>
+<td>system</td>
+<td>UUID for this payment method</td>
+</tr>
+<tr>
+<td><strong>externalKey</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Optional external key provided by the client</td>
+</tr>
+<tr>
+<td><strong>accountId</strong></td>
+<td>string</td>
+<td>system</td>
+<td>UUID for the associated account</td>
+</tr>
+<tr>
+<td><strong>isDefault</strong></td>
+<td>boolean</td>
+<td>user</td>
+<td>Indicates whether this is the default payment method</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Name of the associated plugin.</td>
+</tr>
+<tr>
+<td><strong>pluginInfo</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Plugin specific information, as required.</td>
+</tr>
+</tbody></table>
+
+<p>All payment operations associated with this payment method will be delegated to the plugin specified by <strong>pluginName</strong>.</p>
+<h2 id='payment-methods'>Payment Methods</h2>
+<p>Basic operations to retrieve, list, search and delete payment methods.</p>
+
+<p>Note that the creation of a payment method needs to be done at the Account level using the <a href="account.html#account-add-a-payment-method">Add a payment method</a> endpoint. The <code>pluginName</code> attribute identifies the payment plugin that will be used by the system when this payment method is used for a payment. </p>
+<h3 id='retrieve-a-payment-method-by-id'>Retrieve a payment method by id</h3>
+<p>Retrieve information on a payment method, given its payment method ID.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will include plugin info</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">PaymentMethod</span> <span class="n">paymentMethodJson</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethod</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                                    <span class="n">includedDeleted</span><span class="o">,</span> 
+                                                                    <span class="n">withPluginInfo</span><span class="o">,</span> 
+                                                                    <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                                    <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span> 
+                                                                    <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_id</span> <span class="o">=</span> <span class="s2">"6a0bf13e-d57f-4f79-84bd-3690135f1923"</span>
+<span class="n">with_plugin_info</span> <span class="o">=</span> <span class="kp">false</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                <span class="n">with_plugin_info</span><span class="p">,</span> 
+                                                <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'0052cddd-0f61-4f68-b653-ca49b5d7f915'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>includedDeleted</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include deleted payment methods</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for the active plugin are returned. These are plugin-dependent (see discussion above).
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a payment method resource object.</p>
+<h3 id='retrieve-a-payment-method-by-external-key'>Retrieve a payment method by external key</h3>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19?externalKey=coolPaymentMethod'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">String</span> <span class="n">externalKey</span> <span class="o">=</span> <span class="s">"foo"</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not reflect plugin info</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">PaymentMethod</span> <span class="n">paymentMethod</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodByKey</span><span class="o">(</span><span class="n">externalKey</span><span class="o">,</span> 
+                                                                     <span class="n">includedDeleted</span><span class="o">,</span>
+                                                                     <span class="n">withPluginInfo</span><span class="o">,</span>
+                                                                     <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                                     <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_ek</span> <span class="o">=</span> <span class="s2">"sample_external_key"</span>
+<span class="n">included_deleted</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">with_plugin_info</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">find_by_external_key</span><span class="p">(</span><span class="n">payment_method_ek</span><span class="p">,</span>
+                                                          <span class="n">included_deleted</span><span class="p">,</span>
+                                                          <span class="n">with_plugin_info</span><span class="p">,</span>
+                                                          <span class="n">audit</span><span class="p">,</span>
+                                                          <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">external_key</span> <span class="o">=</span> <span class="s">'sample_external_key'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method_by_key</span><span class="p">(</span><span class="n">external_key</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>externalKey</strong></td>
+<td>string</td>
+<td>yes</td>
+<td>none</td>
+<td>External key</td>
+</tr>
+<tr>
+<td><strong>includedDeleted</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include deleted payment methods</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for the active plugin are returned. These are plugin-dependent (see discussion above).
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a payment method resource object.</p>
+<h3 id='delete-a-payment-method'>Delete a payment method</h3>
+<p>This API deletes a payment method. The default payment method may not be deleted, depending on the query parameters.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19'</span>  
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="nc">Boolean</span> <span class="n">deleteDefaultPmWithAutoPayOff</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will delete default payment method with auto pay off</span>
+<span class="nc">Boolean</span> <span class="n">forceDefaultPmDeletion</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will force default payment method deletion</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">deletePaymentMethod</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                     <span class="n">deleteDefaultPmWithAutoPayOff</span><span class="o">,</span> 
+                                     <span class="n">forceDefaultPmDeletion</span><span class="o">,</span> 
+                                     <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_id</span> <span class="o">=</span> <span class="s2">"4307ac7c-04a7-41e1-9cb0-8a4d4420104c"</span>
+<span class="n">set_auto_pay_off</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">force_default_deletion</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">destroy</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                             <span class="n">set_auto_pay_off</span><span class="p">,</span>
+                                             <span class="n">force_default_deletion</span><span class="p">,</span>
+                                             <span class="n">user</span><span class="p">,</span>
+                                             <span class="n">reason</span><span class="p">,</span>
+                                             <span class="n">comment</span><span class="p">,</span>
+                                             <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'0052cddd-0f61-4f68-b653-ca49b5d7f915'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">delete_payment_method</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                       <span class="n">created_by</span><span class="p">,</span> 
+                                       <span class="n">api_key</span><span class="p">,</span> 
+                                       <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>deleteDefaultPmWithAutoPayOff</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>if true, delete default payment method only if AUTO_PAY_OFF is set</td>
+</tr>
+<tr>
+<td><strong>forceDefaultPmDeletion</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>if true, force default payment method deletion</td>
+</tr>
+</tbody></table>
+
+<p>The query parameters determine the behavior if the payment method specified is the default method: If <strong>forceDefaultPmDeletion</strong> is true, the payment method will be deleted unconditionally. If <strong>deleteDefaultPmWithAutoPayOff</strong> is true, the payment method will also be deleted, and AUTO_PAY_OFF will be set (if not already). If neither parameter is true, the default payment method will not be deleted (the call will fail). </p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 204 and an empty body. If the payment method is the default and cannot be deleted, an error code of 500 and a suitable message will be returned.</p>
+<h2 id='list-and-search'>List and Search</h2>
+<p>These endpoints provide the ability to list and search for payment methods for a specific tenant</p>
+<h3 id='list-payment-methods'>List payment methods</h3>
+<p>List all payment methods stored for the accounts maintained by this tenant</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/pagination</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/pagination'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">Long</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">pluginName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+
+<span class="nc">PaymentMethods</span> <span class="n">allPaymentMethods</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethods</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span>
+                                                                      <span class="n">limit</span><span class="o">,</span>
+                                                                      <span class="n">pluginName</span><span class="o">,</span>
+                                                                      <span class="n">withPluginInfo</span><span class="o">,</span>
+                                                                      <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span>
+                                                                      <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                      <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">find_in_batches</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span>
+                               <span class="n">limit</span><span class="p">,</span>
+                               <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_methods</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dc89832d-18a3-42fd-b3be-cac074fddb36"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paypal"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca15adc4-1061-4e54-a9a0-15e773b3b154"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"killbill-paypal-express"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td>long</td>
+<td>no</td>
+<td>0</td>
+<td>Starting position in list</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>long</td>
+<td>no</td>
+<td>100</td>
+<td>Max number of items to return</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>no</td>
+<td>all plugins</td>
+<td>If present, list only payment methods that use this plugin</td>
+</tr>
+<tr>
+<td><strong>pluginProperties</strong></td>
+<td>array of strings</td>
+<td>no</td>
+<td>no properties</td>
+<td>return these properties for this plugin</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for each payment method&#39;s plugin are returned. These are plugin-dependent (see discussion above). If <strong>pluginName</strong> is given, list only payment methods that use this plugin, and return only the attributes specified by <strong>pluginProperties</strong>.
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method resource objects.</p>
+<h3 id='search-payment-methods'>Search payment methods</h3>
+<p>This API searches all payment methods for a specified search string. The search string is given as a path parameter.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/search/{searchKey}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/search/coolPaymentMethod'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">String</span> <span class="n">searchKey</span> <span class="o">=</span> <span class="s">"4365"</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">100L</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">pluginName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">PaymentMethod</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">searchPaymentMethods</span><span class="o">(</span><span class="n">searchKey</span><span class="o">,</span> 
+                                                                    <span class="n">offset</span><span class="o">,</span> 
+                                                                    <span class="n">limit</span><span class="o">,</span> 
+                                                                    <span class="n">pluginName</span><span class="o">,</span> 
+                                                                    <span class="n">withPluginInfo</span><span class="o">,</span> 
+                                                                    <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span>  
+                                                                    <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>  
+                                                                    <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">search_key</span> <span class="o">=</span> <span class="s1">'example'</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">find_in_batches_by_search_key</span><span class="p">(</span><span class="n">search_key</span><span class="p">,</span>
+                                             <span class="n">offset</span><span class="p">,</span>
+                                             <span class="n">limit</span><span class="p">,</span>
+                                             <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">search_key</span> <span class="o">=</span> <span class="s">'__EXTERNAL_PAYMENT__'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">search_payment_methods</span><span class="p">(</span><span class="n">search_key</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td>long</td>
+<td>no</td>
+<td>0</td>
+<td>Starting position in list</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>long</td>
+<td>no</td>
+<td>100</td>
+<td>Max number of items to return</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>no</td>
+<td>all plugins</td>
+<td>If present, list only payment methods that use this plugin</td>
+</tr>
+<tr>
+<td><strong>pluginProperties</strong></td>
+<td>array of strings</td>
+<td>no</td>
+<td>no properties</td>
+<td>return these properties for this plugin</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for each payment method&#39;s plugin are returned. These are plugin-dependent (see discussion above). If <strong>pluginName</strong> is given, list only payment methods that use this plugin, and return only the attributes specified by <strong>pluginProperties</strong>.
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method resource objects that match the search key.</p>
+<h2 id='custom-fields'>Custom Fields</h2>
+<p><code>Custom fields</code> are <code>{key, value}</code> attributes that can be attached to any customer resources. For more on custom fields see <a href="custom-field.html#custom-fields">Custom Fields</a>. These endpoints manage custom fields associated with <code>PaymentMethod</code> objects.</p>
+<h3 id='add-custom-fields-to-a-payment-method'>Add custom fields to a payment method</h3>
+<p>Adds one or more custom fields to a payment method object. Existing custom fields are not disturbed.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>POST http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "objectId": "916619a4-02bb-4d3d-b3da-2584ac897b19",
+            "objectType": "PAYMENT_METHOD",
+            "name": "Test Custom Field",
+            "value": "test_value"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="no">EMPTY_AUDIT_LOGS</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span>
+
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomField</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> 
+                                 <span class="n">paymentMethodId</span><span class="o">,</span> 
+                                 <span class="nc">ObjectType</span><span class="o">.</span><span class="na">PAYMENT_METHOD</span><span class="o">,</span> 
+                                 <span class="s">"Test Custom Field"</span><span class="o">,</span> 
+                                 <span class="s">"test_value"</span><span class="o">,</span> 
+                                 <span class="no">EMPTY_AUDIT_LOGS</span><span class="o">));</span>
+
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">createPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFields</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span> <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">CustomFieldAttributes</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">object_type</span> <span class="o">=</span> <span class="s1">'PAYMENT_METHOD'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Custom Field'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_value'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">add_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span> 
+                                <span class="n">user</span><span class="p">,</span>
+                                <span class="n">reason</span><span class="p">,</span>
+                                <span class="n">comment</span><span class="p">,</span>
+                                <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">create_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                                     <span class="p">[</span><span class="n">body</span><span class="p">],</span>
+                                                     <span class="n">created_by</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span>
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Request Body</strong></p>
+
+<p>A list of objects giving the name and value of the custom field, or fields, to be added. For example:</p>
+
+<p>[
+  {
+    &quot;name&quot;: &quot;CF1&quot;,
+    &quot;value&quot;: &quot;123&quot;
+  }
+]</p>
+
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a 201 status code. In addition, a <code>Location</code> header is returned giving the URL to retrieve the custom fields associated with the payment method.</p>
+<h3 id='retrieve-payment-method-custom-fields'>Retrieve payment method custom fields</h3>
+<p>Returns any custom field objects associated with the specified payment method</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomField</span><span class="o">&gt;</span> <span class="n">customFields</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span>
+                                                                               <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">custom_fields</span><span class="p">(</span><span class="n">audit</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                  <span class="n">api_key</span><span class="p">,</span> 
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6d4c073b-fd89-4e39-9802-eba65f42492f"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return:&quot;NONE&quot;, &quot;MINIMAL&quot;, or &quot;FULL&quot;</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a (possibly empty) list of custom field objects.</p>
+<h3 id='modify-custom-fields-for-payment-method'>Modify custom fields for payment method</h3>
+<p>Modifies the value of one or more existing custom fields associated with a payment object</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>PUT http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "customFieldId": "6d4c073b-fd89-4e39-9802-eba65f42492f",
+            "value": "NewValue"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+
+<span class="nc">CustomField</span> <span class="n">customFieldModified</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomField</span><span class="o">();</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setCustomFieldId</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"NewValue"</span><span class="o">);</span>
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customFieldModified</span><span class="o">);</span>
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">modifyPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFields</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span><span class="p">.</span><span class="nf">custom_field_id</span> <span class="o">=</span> <span class="s1">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Modify'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_modify_value'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">modify_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span>                                                                                            
+                                   <span class="n">user</span><span class="p">,</span> 
+                                   <span class="n">reason</span><span class="p">,</span>
+                                   <span class="n">comment</span><span class="p">,</span> 
+                                   <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">custom_field_id</span> <span class="o">=</span> <span class="s">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">custom_field_id</span><span class="o">=</span><span class="n">custom_field_id</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> 
+                   <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">modify_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                     <span class="p">[</span><span class="n">body</span><span class="p">],</span> 
+                                                     <span class="n">created_by</span><span class="p">,</span> 
+                                                     <span class="n">api_key</span><span class="p">,</span> 
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Request Body</strong></p>
+
+<p>A list of objects specifying the id and the new value for the custom fields to be modified. For example:</p>
+
+<p>[ { &quot;customFieldId&quot;: &quot;6d4c073b-fd89-4e39-9802-eba65f42492f&quot;, &quot;value&quot;: &quot;123&quot; } ]</p>
+
+<p>Although the <code>fieldName</code> and <code>objectType</code> can be specified in the request body, these cannot be modified, only the field value can be modified.</p>
+
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, a status code of 204 and an empty body.</p>
+<h3 id='remove-custom-fields-from-payment-method'>Remove custom fields from payment method</h3>
+<p>Delete one or more custom fields from a payment method</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/77e23878-8b9d-403b-bf31-93003e125712/customFields?customField=439ed0f8-9b37-4688-bace-e2595b1d3801'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="no">UUID</span><span class="o">&gt;</span> <span class="n">customFieldsList</span> <span class="o">=</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">deletePaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFieldsList</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field_id</span> <span class="o">=</span> <span class="n">custom_field</span><span class="p">.</span><span class="nf">id</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">remove_custom_field</span><span class="p">(</span><span class="n">custom_field_id</span><span class="p">,</span>                                                                                            
+                                   <span class="n">user</span><span class="p">,</span> 
+                                   <span class="n">reason</span><span class="p">,</span>
+                                   <span class="n">comment</span><span class="p">,</span> 
+                                   <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">delete_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                                     <span class="n">created_by</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span> 
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>customField</strong></td>
+<td>string</td>
+<td>yes</td>
+<td>none</td>
+<td>Custom field object ID that should be deleted. Multiple custom fields can be deleted by specifying a separate <strong>customField</strong> parameter corresponding to each field.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 204 and an empty body.</p>
+<h2 id='audit-logs'>Audit Logs</h2>
+<p>This endpoint enables access to payment method audit logs. For more on audit logs see the Audit and History section under Using Kill Bill APIs.</p>
+<h3 id='retrieve-payment-method-audit-logs-with-history-by-id'>Retrieve payment method audit logs with history by id</h3>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/auditLogsWithHistory</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/auditLogsWithHistory'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e9d95f16-a426-46d0-b76b-90814792fb36"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodAuditLogsWithHistory</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">accountApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">AccountApi</span><span class="p">()</span>
+<span class="n">account_id</span> <span class="o">=</span> <span class="s">'c62d5f6d-0b57-444d-bf9b-dd23e781fbda'</span>
+<span class="n">account_email_id</span> <span class="o">=</span> <span class="s">'bb390282-6757-4f4f-8dd5-456abd9f30b2'</span>
+
+<span class="n">accountApi</span><span class="p">.</span><span class="n">get_account_email_audit_logs_with_history</span><span class="p">(</span><span class="n">account_id</span><span class="p">,</span>
+                                                     <span class="n">account_email_id</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span>
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">account_email_id</span> <span class="o">=</span> <span class="s1">'a4627e89-a73b-4167-a7ba-92a2881eb3c4'</span>
+
+<span class="n">account</span><span class="p">.</span><span class="nf">email_audit_logs_with_history</span><span class="p">(</span><span class="n">account_email_id</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f77892e9-32bd-4d59-8039-5e12798b53fe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHODS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Returns</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method audit logs with history.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+
+        <div id="docsearch"></div>
+        
+        <div id="toc" class="toc-list-h1">
+            <li>
+              <a href="#payment-method" class="toc-h1 toc-link" data-title="Payment Method">Payment Method</a>
+                <ul class="toc-list-h2">
+                    <li>
+                      <a href="#payment-method-resource" class="toc-h2 toc-link" data-title="Payment Method Resource">Payment Method Resource</a>
+                    </li>
+                    <li>
+                      <a href="#payment-methods" class="toc-h2 toc-link" data-title="Payment Methods">Payment Methods</a>
+                          <ul class="toc-list-h3">
+                                <li>
+                                  <a href="#retrieve-a-payment-method-by-id" class="toc-h3 toc-link" data-title="Payment Method">Retrieve a payment method by id</a>
+                                </li>
+                                <li>
+                                  <a href="#retrieve-a-payment-method-by-external-key" class="toc-h3 toc-link" data-title="Payment Method">Retrieve a payment method by external key</a>
+                                </li>
+                                <li>
+                                  <a href="#delete-a-payment-method" class="toc-h3 toc-link" data-title="Payment Method">Delete a payment method</a>
+                                </li>
+                          </ul>
+                    </li>
+                    <li>
+                      <a href="#list-and-search" class="toc-h2 toc-link" data-title="List and Search">List and Search</a>
+                          <ul class="toc-list-h3">
+                                <li>
+                                  <a href="#list-payment-methods" class="toc-h3 toc-link" data-title="Payment Method">List payment methods</a>
+                                </li>
+                                <li>
+                                  <a href="#search-payment-methods" class="toc-h3 toc-link" data-title="Payment Method">Search payment methods</a>
+                                </li>
+                          </ul>
+                    </li>
+                    <li>
+                      <a href="#custom-fields" class="toc-h2 toc-link" data-title="Custom Fields">Custom Fields</a>
+                          <ul class="toc-list-h3">
+                                <li>
+                                  <a href="#add-custom-fields-to-a-payment-method" class="toc-h3 toc-link" data-title="Payment Method">Add custom fields to a payment method</a>
+                                </li>
+                                <li>
+                                  <a href="#retrieve-payment-method-custom-fields" class="toc-h3 toc-link" data-title="Payment Method">Retrieve payment method custom fields</a>
+                                </li>
+                                <li>
+                                  <a href="#modify-custom-fields-for-payment-method" class="toc-h3 toc-link" data-title="Payment Method">Modify custom fields for payment method</a>
+                                </li>
+                                <li>
+                                  <a href="#remove-custom-fields-from-payment-method" class="toc-h3 toc-link" data-title="Payment Method">Remove custom fields from payment method</a>
+                                </li>
+                          </ul>
+                    </li>
+                    <li>
+                      <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
+                          <ul class="toc-list-h3">
+                                <li>
+                                  <a href="#retrieve-payment-method-audit-logs-with-history-by-id" class="toc-h3 toc-link" data-title="Payment Method">Retrieve payment method audit logs with history by id</a>
+                                </li>
+                          </ul>
+                    </li>
+                </ul>
+            </li>
+        </div>
+      </div>
+      <div class="page-wrapper">
+        <div class="dark-box"></div>
+        <div class="content">
+          <h1 id='payment-method'>Payment Method</h1><h2 id='payment-method-resource'>Payment Method Resource</h2>
+<p>The <code>Payment Method</code> resource represents the payment methods associated with a customer <code>Account</code>. There are two parts to the state associated with this resource, a first generic set of attributes kept by Kill Bill core subsystem, and another set of attributes kept at the (payment) plugin level.</p>
+
+<ul>
+<li>The core Kill Bill attributes shown below mostly track the associated payment plugin that is used to interact with the payment gateway.</li>
+<li>The plugin attributes are typically the details about such customer payment method: In the case of a credit card for instance, the plugin would keep track of things like <code>name</code>, <code>address</code>, <code>last4</code>, and <code>token</code>. Not only are such attributes dependent on the payment method, but they are also dependent on the third party payment gateway, and on the tokenization model, which is why they are kept by the plugin (internal tables), and not by the Kill Bill core payment subsystem.</li>
+</ul>
+
+<p>Kill Bill also supports a more advanced use case for payment routing, where the choice of the payment gateway is decided at run time
+based on custom business rules. Additional information can be found in our <a href="http://docs.killbill.io/latest/userguide_payment.html">Payment Manual</a>.</p>
+
+<p>The Kill Bill attributes are the following:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Generated by</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>paymentMethodId</strong></td>
+<td>string</td>
+<td>system</td>
+<td>UUID for this payment method</td>
+</tr>
+<tr>
+<td><strong>externalKey</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Optional external key provided by the client</td>
+</tr>
+<tr>
+<td><strong>accountId</strong></td>
+<td>string</td>
+<td>system</td>
+<td>UUID for the associated account</td>
+</tr>
+<tr>
+<td><strong>isDefault</strong></td>
+<td>boolean</td>
+<td>user</td>
+<td>Indicates whether this is the default payment method</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Name of the associated plugin.</td>
+</tr>
+<tr>
+<td><strong>pluginInfo</strong></td>
+<td>string</td>
+<td>user</td>
+<td>Plugin specific information, as required.</td>
+</tr>
+</tbody></table>
+
+<p>All payment operations associated with this payment method will be delegated to the plugin specified by <strong>pluginName</strong>.</p>
+<h2 id='payment-methods'>Payment Methods</h2>
+<p>Basic operations to retrieve, list, search and delete payment methods.</p>
+
+<p>Note that the creation of a payment method needs to be done at the Account level using the <a href="account.html#account-add-a-payment-method">Add a payment method</a> endpoint. The <code>pluginName</code> attribute identifies the payment plugin that will be used by the system when this payment method is used for a payment. </p>
+<h3 id='retrieve-a-payment-method-by-id'>Retrieve a payment method by id</h3>
+<p>Retrieve information on a payment method, given its payment method ID.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will include plugin info</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">PaymentMethod</span> <span class="n">paymentMethodJson</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethod</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                                    <span class="n">includedDeleted</span><span class="o">,</span> 
+                                                                    <span class="n">withPluginInfo</span><span class="o">,</span> 
+                                                                    <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                                    <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span> 
+                                                                    <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_id</span> <span class="o">=</span> <span class="s2">"6a0bf13e-d57f-4f79-84bd-3690135f1923"</span>
+<span class="n">with_plugin_info</span> <span class="o">=</span> <span class="kp">false</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                <span class="n">with_plugin_info</span><span class="p">,</span> 
+                                                <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'0052cddd-0f61-4f68-b653-ca49b5d7f915'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>includedDeleted</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include deleted payment methods</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for the active plugin are returned. These are plugin-dependent (see discussion above).
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a payment method resource object.</p>
+<h3 id='retrieve-a-payment-method-by-external-key'>Retrieve a payment method by external key</h3>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19?externalKey=coolPaymentMethod'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">String</span> <span class="n">externalKey</span> <span class="o">=</span> <span class="s">"foo"</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not reflect plugin info</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">PaymentMethod</span> <span class="n">paymentMethod</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodByKey</span><span class="o">(</span><span class="n">externalKey</span><span class="o">,</span> 
+                                                                     <span class="n">includedDeleted</span><span class="o">,</span>
+                                                                     <span class="n">withPluginInfo</span><span class="o">,</span>
+                                                                     <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                                     <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_ek</span> <span class="o">=</span> <span class="s2">"sample_external_key"</span>
+<span class="n">included_deleted</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">with_plugin_info</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">find_by_external_key</span><span class="p">(</span><span class="n">payment_method_ek</span><span class="p">,</span>
+                                                          <span class="n">included_deleted</span><span class="p">,</span>
+                                                          <span class="n">with_plugin_info</span><span class="p">,</span>
+                                                          <span class="n">audit</span><span class="p">,</span>
+                                                          <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">external_key</span> <span class="o">=</span> <span class="s">'sample_external_key'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method_by_key</span><span class="p">(</span><span class="n">external_key</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>externalKey</strong></td>
+<td>string</td>
+<td>yes</td>
+<td>none</td>
+<td>External key</td>
+</tr>
+<tr>
+<td><strong>includedDeleted</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include deleted payment methods</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for the active plugin are returned. These are plugin-dependent (see discussion above).
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a payment method resource object.</p>
+<h3 id='delete-a-payment-method'>Delete a payment method</h3>
+<p>This API deletes a payment method. The default payment method may not be deleted, depending on the query parameters.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19'</span>  
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="nc">Boolean</span> <span class="n">deleteDefaultPmWithAutoPayOff</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will delete default payment method with auto pay off</span>
+<span class="nc">Boolean</span> <span class="n">forceDefaultPmDeletion</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// Will force default payment method deletion</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">deletePaymentMethod</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                     <span class="n">deleteDefaultPmWithAutoPayOff</span><span class="o">,</span> 
+                                     <span class="n">forceDefaultPmDeletion</span><span class="o">,</span> 
+                                     <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">payment_method_id</span> <span class="o">=</span> <span class="s2">"4307ac7c-04a7-41e1-9cb0-8a4d4420104c"</span>
+<span class="n">set_auto_pay_off</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">force_default_deletion</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">PaymentMethod</span><span class="p">.</span><span class="nf">destroy</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                             <span class="n">set_auto_pay_off</span><span class="p">,</span>
+                                             <span class="n">force_default_deletion</span><span class="p">,</span>
+                                             <span class="n">user</span><span class="p">,</span>
+                                             <span class="n">reason</span><span class="p">,</span>
+                                             <span class="n">comment</span><span class="p">,</span>
+                                             <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'0052cddd-0f61-4f68-b653-ca49b5d7f915'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">delete_payment_method</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                       <span class="n">created_by</span><span class="p">,</span> 
+                                       <span class="n">api_key</span><span class="p">,</span> 
+                                       <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>deleteDefaultPmWithAutoPayOff</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>if true, delete default payment method only if AUTO_PAY_OFF is set</td>
+</tr>
+<tr>
+<td><strong>forceDefaultPmDeletion</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>if true, force default payment method deletion</td>
+</tr>
+</tbody></table>
+
+<p>The query parameters determine the behavior if the payment method specified is the default method: If <strong>forceDefaultPmDeletion</strong> is true, the payment method will be deleted unconditionally. If <strong>deleteDefaultPmWithAutoPayOff</strong> is true, the payment method will also be deleted, and AUTO_PAY_OFF will be set (if not already). If neither parameter is true, the default payment method will not be deleted (the call will fail). </p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 204 and an empty body. If the payment method is the default and cannot be deleted, an error code of 500 and a suitable message will be returned.</p>
+<h2 id='list-and-search'>List and Search</h2>
+<p>These endpoints provide the ability to list and search for payment methods for a specific tenant</p>
+<h3 id='list-payment-methods'>List payment methods</h3>
+<p>List all payment methods stored for the accounts maintained by this tenant</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/pagination</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/pagination'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">Long</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">pluginName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+
+<span class="nc">PaymentMethods</span> <span class="n">allPaymentMethods</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethods</span><span class="o">(</span><span class="n">offset</span><span class="o">,</span>
+                                                                      <span class="n">limit</span><span class="o">,</span>
+                                                                      <span class="n">pluginName</span><span class="o">,</span>
+                                                                      <span class="n">withPluginInfo</span><span class="o">,</span>
+                                                                      <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span>
+                                                                      <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                      <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">find_in_batches</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span>
+                               <span class="n">limit</span><span class="p">,</span>
+                               <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_methods</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dc89832d-18a3-42fd-b3be-cac074fddb36"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paypal"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca15adc4-1061-4e54-a9a0-15e773b3b154"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"killbill-paypal-express"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td>long</td>
+<td>no</td>
+<td>0</td>
+<td>Starting position in list</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>long</td>
+<td>no</td>
+<td>100</td>
+<td>Max number of items to return</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>no</td>
+<td>all plugins</td>
+<td>If present, list only payment methods that use this plugin</td>
+</tr>
+<tr>
+<td><strong>pluginProperties</strong></td>
+<td>array of strings</td>
+<td>no</td>
+<td>no properties</td>
+<td>return these properties for this plugin</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for each payment method&#39;s plugin are returned. These are plugin-dependent (see discussion above). If <strong>pluginName</strong> is given, list only payment methods that use this plugin, and return only the attributes specified by <strong>pluginProperties</strong>.
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method resource objects.</p>
+<h3 id='search-payment-methods'>Search payment methods</h3>
+<p>This API searches all payment methods for a specified search string. The search string is given as a path parameter.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/search/{searchKey}</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/search/coolPaymentMethod'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="nc">String</span> <span class="n">searchKey</span> <span class="o">=</span> <span class="s">"4365"</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0L</span><span class="o">;</span>
+<span class="nc">Long</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">100L</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">pluginName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">withPluginInfo</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">PaymentMethod</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">searchPaymentMethods</span><span class="o">(</span><span class="n">searchKey</span><span class="o">,</span> 
+                                                                    <span class="n">offset</span><span class="o">,</span> 
+                                                                    <span class="n">limit</span><span class="o">,</span> 
+                                                                    <span class="n">pluginName</span><span class="o">,</span> 
+                                                                    <span class="n">withPluginInfo</span><span class="o">,</span> 
+                                                                    <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span>  
+                                                                    <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>  
+                                                                    <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">search_key</span> <span class="o">=</span> <span class="s1">'example'</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">find_in_batches_by_search_key</span><span class="p">(</span><span class="n">search_key</span><span class="p">,</span>
+                                             <span class="n">offset</span><span class="p">,</span>
+                                             <span class="n">limit</span><span class="p">,</span>
+                                             <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">search_key</span> <span class="o">=</span> <span class="s">'__EXTERNAL_PAYMENT__'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">search_payment_methods</span><span class="p">(</span><span class="n">search_key</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coolPaymentMethod"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pluginInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>offset</strong></td>
+<td>long</td>
+<td>no</td>
+<td>0</td>
+<td>Starting position in list</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>long</td>
+<td>no</td>
+<td>100</td>
+<td>Max number of items to return</td>
+</tr>
+<tr>
+<td><strong>withPluginInfo</strong></td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>If true, include plugin info</td>
+</tr>
+<tr>
+<td><strong>pluginName</strong></td>
+<td>string</td>
+<td>no</td>
+<td>all plugins</td>
+<td>If present, list only payment methods that use this plugin</td>
+</tr>
+<tr>
+<td><strong>pluginProperties</strong></td>
+<td>array of strings</td>
+<td>no</td>
+<td>no properties</td>
+<td>return these properties for this plugin</td>
+</tr>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return</td>
+</tr>
+</tbody></table>
+
+<p>If <strong>withPluginInfo</strong> is set to true, attributes for each payment method&#39;s plugin are returned. These are plugin-dependent (see discussion above). If <strong>pluginName</strong> is given, list only payment methods that use this plugin, and return only the attributes specified by <strong>pluginProperties</strong>.
+Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method resource objects that match the search key.</p>
+<h2 id='custom-fields'>Custom Fields</h2>
+<p><code>Custom fields</code> are <code>{key, value}</code> attributes that can be attached to any customer resources. For more on custom fields see <a href="custom-field.html#custom-fields">Custom Fields</a>. These endpoints manage custom fields associated with <code>PaymentMethod</code> objects.</p>
+<h3 id='add-custom-fields-to-a-payment-method'>Add custom fields to a payment method</h3>
+<p>Adds one or more custom fields to a payment method object. Existing custom fields are not disturbed.</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>POST http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "objectId": "916619a4-02bb-4d3d-b3da-2584ac897b19",
+            "objectType": "PAYMENT_METHOD",
+            "name": "Test Custom Field",
+            "value": "test_value"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="no">EMPTY_AUDIT_LOGS</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span>
+
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomField</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> 
+                                 <span class="n">paymentMethodId</span><span class="o">,</span> 
+                                 <span class="nc">ObjectType</span><span class="o">.</span><span class="na">PAYMENT_METHOD</span><span class="o">,</span> 
+                                 <span class="s">"Test Custom Field"</span><span class="o">,</span> 
+                                 <span class="s">"test_value"</span><span class="o">,</span> 
+                                 <span class="no">EMPTY_AUDIT_LOGS</span><span class="o">));</span>
+
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">createPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFields</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span> <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">CustomFieldAttributes</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">object_type</span> <span class="o">=</span> <span class="s1">'PAYMENT_METHOD'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Custom Field'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_value'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">add_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span> 
+                                <span class="n">user</span><span class="p">,</span>
+                                <span class="n">reason</span><span class="p">,</span>
+                                <span class="n">comment</span><span class="p">,</span>
+                                <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">create_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                                     <span class="p">[</span><span class="n">body</span><span class="p">],</span>
+                                                     <span class="n">created_by</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span>
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Request Body</strong></p>
+
+<p>A list of objects giving the name and value of the custom field, or fields, to be added. For example:</p>
+
+<p>[
+  {
+    &quot;name&quot;: &quot;CF1&quot;,
+    &quot;value&quot;: &quot;123&quot;
+  }
+]</p>
+
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a 201 status code. In addition, a <code>Location</code> header is returned giving the URL to retrieve the custom fields associated with the payment method.</p>
+<h3 id='retrieve-payment-method-custom-fields'>Retrieve payment method custom fields</h3>
+<p>Returns any custom field objects associated with the specified payment method</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomField</span><span class="o">&gt;</span> <span class="n">customFields</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span>
+                                                                               <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">custom_fields</span><span class="p">(</span><span class="n">audit</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">get_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                  <span class="n">api_key</span><span class="p">,</span> 
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6d4c073b-fd89-4e39-9802-eba65f42492f"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>audit</strong></td>
+<td>string</td>
+<td>no</td>
+<td>&quot;NONE&quot;</td>
+<td>Level of audit information to return:&quot;NONE&quot;, &quot;MINIMAL&quot;, or &quot;FULL&quot;</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 200 and a (possibly empty) list of custom field objects.</p>
+<h3 id='modify-custom-fields-for-payment-method'>Modify custom fields for payment method</h3>
+<p>Modifies the value of one or more existing custom fields associated with a payment object</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>PUT http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "customFieldId": "6d4c073b-fd89-4e39-9802-eba65f42492f",
+            "value": "NewValue"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+
+<span class="nc">CustomField</span> <span class="n">customFieldModified</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomField</span><span class="o">();</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setCustomFieldId</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"NewValue"</span><span class="o">);</span>
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customFieldModified</span><span class="o">);</span>
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">modifyPaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFields</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span><span class="p">.</span><span class="nf">custom_field_id</span> <span class="o">=</span> <span class="s1">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Modify'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_modify_value'</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">modify_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span>                                                                                            
+                                   <span class="n">user</span><span class="p">,</span> 
+                                   <span class="n">reason</span><span class="p">,</span>
+                                   <span class="n">comment</span><span class="p">,</span> 
+                                   <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">custom_field_id</span> <span class="o">=</span> <span class="s">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">custom_field_id</span><span class="o">=</span><span class="n">custom_field_id</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> 
+                   <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">modify_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span> 
+                                                     <span class="p">[</span><span class="n">body</span><span class="p">],</span> 
+                                                     <span class="n">created_by</span><span class="p">,</span> 
+                                                     <span class="n">api_key</span><span class="p">,</span> 
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Request Body</strong></p>
+
+<p>A list of objects specifying the id and the new value for the custom fields to be modified. For example:</p>
+
+<p>[ { &quot;customFieldId&quot;: &quot;6d4c073b-fd89-4e39-9802-eba65f42492f&quot;, &quot;value&quot;: &quot;123&quot; } ]</p>
+
+<p>Although the <code>fieldName</code> and <code>objectType</code> can be specified in the request body, these cannot be modified, only the field value can be modified.</p>
+
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, a status code of 204 and an empty body.</p>
+<h3 id='remove-custom-fields-from-payment-method'>Remove custom fields from payment method</h3>
+<p>Delete one or more custom fields from a payment method</p>
+
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/customFields</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/77e23878-8b9d-403b-bf31-93003e125712/customFields?customField=439ed0f8-9b37-4688-bace-e2595b1d3801'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"3c449da6-7ec4-4c74-813f-f5055739a0b9"</span><span class="o">);</span>
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="no">UUID</span><span class="o">&gt;</span> <span class="n">customFieldsList</span> <span class="o">=</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+<span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">deletePaymentMethodCustomFields</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> 
+                                                 <span class="n">customFieldsList</span><span class="o">,</span> 
+                                                 <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field_id</span> <span class="o">=</span> <span class="n">custom_field</span><span class="p">.</span><span class="nf">id</span>
+
+<span class="n">payment_method</span><span class="p">.</span><span class="nf">remove_custom_field</span><span class="p">(</span><span class="n">custom_field_id</span><span class="p">,</span>                                                                                            
+                                   <span class="n">user</span><span class="p">,</span> 
+                                   <span class="n">reason</span><span class="p">,</span>
+                                   <span class="n">comment</span><span class="p">,</span> 
+                                   <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentMethodApi</span><span class="p">()</span>
+<span class="n">payment_method_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+
+<span class="n">paymentMethodApi</span><span class="p">.</span><span class="n">delete_payment_method_custom_fields</span><span class="p">(</span><span class="n">payment_method_id</span><span class="p">,</span>
+                                                     <span class="n">created_by</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span> 
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>customField</strong></td>
+<td>string</td>
+<td>yes</td>
+<td>none</td>
+<td>Custom field object ID that should be deleted. Multiple custom fields can be deleted by specifying a separate <strong>customField</strong> parameter corresponding to each field.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Response</strong></p>
+
+<p>If successful, returns a status code of 204 and an empty body.</p>
+<h2 id='audit-logs'>Audit Logs</h2>
+<p>This endpoint enables access to payment method audit logs. For more on audit logs see the Audit and History section under Using Kill Bill APIs.</p>
+<h3 id='retrieve-payment-method-audit-logs-with-history-by-id'>Retrieve payment method audit logs with history by id</h3>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentMethods/{paymentMethodId}/auditLogsWithHistory</code></p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentMethods/916619a4-02bb-4d3d-b3da-2584ac897b19/auditLogsWithHistory'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentMethodApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">paymentMethodId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e9d95f16-a426-46d0-b76b-90814792fb36"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentMethodApi</span><span class="o">.</span><span class="na">getPaymentMethodAuditLogsWithHistory</span><span class="o">(</span><span class="n">paymentMethodId</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">accountApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">AccountApi</span><span class="p">()</span>
+<span class="n">account_id</span> <span class="o">=</span> <span class="s">'c62d5f6d-0b57-444d-bf9b-dd23e781fbda'</span>
+<span class="n">account_email_id</span> <span class="o">=</span> <span class="s">'bb390282-6757-4f4f-8dd5-456abd9f30b2'</span>
+
+<span class="n">accountApi</span><span class="p">.</span><span class="n">get_account_email_audit_logs_with_history</span><span class="p">(</span><span class="n">account_id</span><span class="p">,</span>
+                                                     <span class="n">account_email_id</span><span class="p">,</span>
+                                                     <span class="n">api_key</span><span class="p">,</span>
+                                                     <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">account_email_id</span> <span class="o">=</span> <span class="s1">'a4627e89-a73b-4167-a7ba-92a2881eb3c4'</span>
+
+<span class="n">account</span><span class="p">.</span><span class="nf">email_audit_logs_with_history</span><span class="p">(</span><span class="n">account_email_id</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"916619a4-02bb-4d3d-b3da-2584ac897b19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f77892e9-32bd-4d59-8039-5e12798b53fe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-19T14:56:07.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84c7e0d4-a5ed-405f-a655-3ed16ae19997"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pluginName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"__EXTERNAL_PAYMENT__"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHODS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_METHOD_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p><strong>Query Parameters</strong></p>
+
+<p>None.</p>
+
+<p><strong>Returns</strong></p>
+
+<p>If successful, returns a status code of 200 and a list of payment method audit logs with history.</p>
+
+        </div>
+        <div class="dark-box">
+            <div class="lang-selector">
+                  <a href="#" data-language-name="shell">shell</a>
+                  <a href="#" data-language-name="java">java</a>
+                  <a href="#" data-language-name="ruby">ruby</a>
+                  <a href="#" data-language-name="python">python</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    setTimeout(function(){
+      $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
+      $('.content h2, .content h3, .content h4').each(function(){
+        let itemHref = '#' + $(this).attr('id');
+        $(this).find('a').attr("href", itemHref);
+      });
+    });
+  </script>
+  <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>	
+  
+  <script >docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});</script>
+</html>
+
