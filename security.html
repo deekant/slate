@@ -1,14 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Kill Bill</title>
-
-    <style media="screen">
-      .highlight table td { padding: 5px; }
+      <title>Kill Bill</title>
+      <style media="screen">
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
   color: #999999;
@@ -195,13 +193,13 @@
 .highlight .o {
   color: #f92672;
 }
-    </style>
-    <style media="print">
-      * {
-        -webkit-transition:none!important;
-        transition:none!important;
-      }
-      .highlight table td { padding: 5px; }
+      </style>
+      <style media="print">
+        * {
+          -webkit-transition:none!important;
+          transition:none!important;
+        }
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
   color: #586e75;
@@ -281,218 +279,91 @@
 .highlight .ss {
   color: #859900;
 }
-    </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
-
-  </head>
-
-  <body class="security" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
-    <div class="loader-wrapper">
-      <div id="loading"></div>           
-    </div>
-    <script>
-      $(window).on('load',function(){
-        $('.loader-wrapper').hide();
-      });
-    </script>
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+      </style>
+      <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+      <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+        <script src="javascripts/all.js"></script>
+        <script>
+          $(function() { setupCodeCopy(); });
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    </head>
+    <body class="security" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+      <header class="header sticky" id="header">
+        <div class="header-wrapper">
+          <div class="header-logo">
+          <div class="logo-switch-wrapper">
+              <div class="logo">
+              <a href="/">
+                <img src="images/logo/light-logo.svg" style="height:38px" alt="Kill Bill Docs" id="logo">
+              </a>
+            </div>
+            <div class="switch">
+              <input type="checkbox" id="theme-toggle">
+              <span class="slider round"></span>
+            </div>
+          </div>
+            <div class="header-search">
+              <div class="search-form-wrapper">
+                <div id="docsearch" style="height: 43px; display: flex; align-items: center; width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-toggler sidebar-toggler">
+            <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7C20.75 7.41421 20.4142 7.75 20 7.75L4 7.75C3.58579 7.75 3.25 7.41421 3.25 7C3.25 6.58579 3.58579 6.25 4 6.25L20 6.25C20.4142 6.25 20.75 6.58579 20.75 7Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 17C20.75 17.4142 20.4142 17.75 20 17.75L4 17.75C3.58579 17.75 3.25 17.4142 3.25 17C3.25 16.5858 3.58579 16.25 4 16.25L20 16.25C20.4142 16.25 20.75 16.5858 20.75 17Z" fill=""/>
+            </svg>
+          </div>
+            <div class="lang-selector">
+                  <a href="#" data-language-name="shell">shell</a>
+                  <a href="#" data-language-name="java">java</a>
+                  <a href="#" data-language-name="ruby">ruby</a>
+                  <a href="#" data-language-name="python">python</a>
+            </div>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#security" class="toc-h1 toc-link" data-title="Security">Security</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#users" class="toc-h2 toc-link" data-title="Users">Users</a>
-                  </li>
-                  <li>
-                    <a href="#roles" class="toc-h2 toc-link" data-title="Roles">Roles</a>
-                  </li>
-              </ul>
-          </li>
-      </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='security'>Security</h1>
-<p>Kill Bill supports fine grained roles and permissions.</p>
-
-<p>Please refer to our <a href="https://docs.killbill.io/latest/user_management.html">RBAC manual</a> for more details.</p>
-<h2 id='users'>Users</h2><h3 id='list-user-permissions'>List user permissions</h3><h3 id='get-user-information'>Get user information</h3><h3 id='add-a-new-user-with-roles'>Add a new user with roles</h3><h3 id='update-a-user-password'>Update a user password</h3><h3 id='get-roles-associated-to-a-user'>Get roles associated to a user</h3><h3 id='update-roles-associated-to-a-user'>Update roles associated to a user</h3><h3 id='invalidate-an-existing-user'>Invalidate an existing user</h3><h2 id='roles'>Roles</h2><h3 id='retrieve-a-role-definition'>Retrieve a role definition</h3>
-<p>Retrieve an existing role definition.</p>
-
-<p><strong>HTTP Request</strong></p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/security/roles/{role}</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles/ROLE'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROLE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"account:*"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoice:trigger"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and the role object with associated permissions.</p>
-<h3 id='add-a-role-definition'>Add a role definition</h3>
-<p>Create a new role definition.</p>
-
-<p><strong>HTTP Request</strong></p>
-
-<p><code>POST http://127.0.0.1:8080/1.0/kb/roles</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-X</span> POST <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s1">'{
-             "role": "ROLE",
-             "permissions": ["account:*","invoice:trigger"]
-     }'</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 201 and an empty body.</p>
-<h3 id='update-a-role-definition'>Update a role definition</h3>
-<p>Update an existing role permissions.</p>
-
-<p><strong>HTTP Request</strong></p>
-
-<p><code>PUT http://127.0.0.1:8080/1.0/kb/roles</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-X</span> PUT <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s1">'{
-             "role": "ROLE",
-             "permissions": ["account:*"]
-     }'</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 204 and an empty body.</p>
-
+      </header>
+      <div class="loader-wrapper">
+        <div id="loading"></div>
       </div>
-      <div class="dark-box">
+      <script>
+        $(window).on('load',function(){
+          $('.loader-wrapper').hide();
+        });
+      </script>
+      <a href="#" id="nav-button">
+        <span>
+          NAV
+          <img src="images/navbar.png" alt="" />
+        </span>
+      </a>
+      <div class="toc-wrapper">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="java">java</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
           </div>
-
-        <div id="docsearch"></div>
-        
-        <div id="toc" class="toc-list-h1">
+        <ul id="toc" class="toc-list-h1">
             <li>
-              <a href="#security" class="toc-h1 toc-link" data-title="Security">Security</a>
+                <a href="#security" class="toc-h1 toc-link" data-title="Security">Security</a>
                 <ul class="toc-list-h2">
                     <li>
                       <a href="#users" class="toc-h2 toc-link" data-title="Users">Users</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#list-user-permissions" class="toc-h3 toc-link" data-title="Security">List user permissions</a>
-                                </li>
-                                <li>
-                                  <a href="#get-user-information" class="toc-h3 toc-link" data-title="Security">Get user information</a>
-                                </li>
-                                <li>
-                                  <a href="#add-a-new-user-with-roles" class="toc-h3 toc-link" data-title="Security">Add a new user with roles</a>
-                                </li>
-                                <li>
-                                  <a href="#update-a-user-password" class="toc-h3 toc-link" data-title="Security">Update a user password</a>
-                                </li>
-                                <li>
-                                  <a href="#get-roles-associated-to-a-user" class="toc-h3 toc-link" data-title="Security">Get roles associated to a user</a>
-                                </li>
-                                <li>
-                                  <a href="#update-roles-associated-to-a-user" class="toc-h3 toc-link" data-title="Security">Update roles associated to a user</a>
-                                </li>
-                                <li>
-                                  <a href="#invalidate-an-existing-user" class="toc-h3 toc-link" data-title="Security">Invalidate an existing user</a>
-                                </li>
-                          </ul>
                     </li>
                     <li>
                       <a href="#roles" class="toc-h2 toc-link" data-title="Roles">Roles</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#retrieve-a-role-definition" class="toc-h3 toc-link" data-title="Security">Retrieve a role definition</a>
-                                </li>
-                                <li>
-                                  <a href="#add-a-role-definition" class="toc-h3 toc-link" data-title="Security">Add a role definition</a>
-                                </li>
-                                <li>
-                                  <a href="#update-a-role-definition" class="toc-h3 toc-link" data-title="Security">Update a role definition</a>
-                                </li>
-                          </ul>
                     </li>
                 </ul>
             </li>
-        </div>
+        </ul>
+          <ul class="toc-footer">
+              <li><a href="mailto:support@killbill.io">Report a doc problem </a></li>
+          </ul>
       </div>
       <div class="page-wrapper">
-        <div class="dark-box"></div>
         <div class="content">
           <h1 id='security'>Security</h1>
 <p>Kill Bill supports fine grained roles and permissions.</p>
@@ -508,24 +379,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles/ROLE'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROLE"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"account:*"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoice:trigger"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -543,19 +401,7 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-X</span> POST <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s1">'{
-             "role": "ROLE",
-             "permissions": ["account:*","invoice:trigger"]
-     }'</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -573,19 +419,7 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-     <span class="nt">-X</span> PUT <span class="se">\</span>
-     <span class="nt">-u</span> admin:password <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s1">'{
-             "role": "ROLE",
-             "permissions": ["account:*"]
-     }'</span> <span class="se">\</span>
-     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -596,27 +430,48 @@
 
         </div>
         <div class="dark-box">
-            <div class="lang-selector">
-                  <a href="#" data-language-name="shell">shell</a>
-                  <a href="#" data-language-name="java">java</a>
-                  <a href="#" data-language-name="ruby">ruby</a>
-                  <a href="#" data-language-name="python">python</a>
-            </div>
+          <div id="docsearch"></div>
         </div>
       </div>
-    </div>
-  </body>
-  <script>
-    setTimeout(function(){
-      $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
-      $('.content h2, .content h3, .content h4').each(function(){
-        let itemHref = '#' + $(this).attr('id');
-        $(this).find('a').attr("href", itemHref);
-      });
-    });
-  </script>
-  <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>	
-  
-  <script >docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});</script>
-</html>
+    </body>
+    <script>
+      setTimeout(function(){
+        $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
+        $('.content h2, .content h3, .content h4').each(function(){
+          let itemHref = '#' + $(this).attr('id');
+          $(this).find('a').attr("href", itemHref);
+        });
+      })
 
+      setTimeout(() => {
+        let childs = []
+        let temp = (val) => `<div>${val}</div>`;
+        let group = document.createElement('div');
+        let groups = []
+
+        for(elem of $('.content').children()) {
+          if(elem.tagName === 'H2') {
+            groups.push(childs);
+            childs = []
+          }
+          childs.push(elem);
+        };
+
+        groups.map(elem => {
+          let newElem = document.createElement('div');
+          newElem.id = elem[0].id;
+          elem.map(el => {
+            newElem.appendChild(el)
+          });
+
+          $('.content').append(newElem)
+        })
+
+        console.log(groups)
+      }, 1000)
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
+    <script>
+      docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});
+    </script>
+  </html>

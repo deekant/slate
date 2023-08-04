@@ -1,14 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Kill Bill</title>
-
-    <style media="screen">
-      .highlight table td { padding: 5px; }
+      <title>Kill Bill</title>
+      <style media="screen">
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
   color: #999999;
@@ -195,13 +193,13 @@
 .highlight .o {
   color: #f92672;
 }
-    </style>
-    <style media="print">
-      * {
-        -webkit-transition:none!important;
-        transition:none!important;
-      }
-      .highlight table td { padding: 5px; }
+      </style>
+      <style media="print">
+        * {
+          -webkit-transition:none!important;
+          transition:none!important;
+        }
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
   color: #586e75;
@@ -281,1075 +279,100 @@
 .highlight .ss {
   color: #859900;
 }
-    </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
-
-  </head>
-
-  <body class="payment-transaction" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
-    <div class="loader-wrapper">
-      <div id="loading"></div>           
-    </div>
-    <script>
-      $(window).on('load',function(){
-        $('.loader-wrapper').hide();
-      });
-    </script>
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+      </style>
+      <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+      <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+        <script src="javascripts/all.js"></script>
+        <script>
+          $(function() { setupCodeCopy(); });
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    </head>
+    <body class="payment-transaction" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+      <header class="header sticky" id="header">
+        <div class="header-wrapper">
+          <div class="header-logo">
+          <div class="logo-switch-wrapper">
+              <div class="logo">
+              <a href="/">
+                <img src="images/logo/light-logo.svg" style="height:38px" alt="Kill Bill Docs" id="logo">
+              </a>
+            </div>
+            <div class="switch">
+              <input type="checkbox" id="theme-toggle">
+              <span class="slider round"></span>
+            </div>
+          </div>
+            <div class="header-search">
+              <div class="search-form-wrapper">
+                <div id="docsearch" style="height: 43px; display: flex; align-items: center; width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-toggler sidebar-toggler">
+            <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7C20.75 7.41421 20.4142 7.75 20 7.75L4 7.75C3.58579 7.75 3.25 7.41421 3.25 7C3.25 6.58579 3.58579 6.25 4 6.25L20 6.25C20.4142 6.25 20.75 6.58579 20.75 7Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 17C20.75 17.4142 20.4142 17.75 20 17.75L4 17.75C3.58579 17.75 3.25 17.4142 3.25 17C3.25 16.5858 3.58579 16.25 4 16.25L20 16.25C20.4142 16.25 20.75 16.5858 20.75 17Z" fill=""/>
+            </svg>
+          </div>
+            <div class="lang-selector">
+                  <a href="#" data-language-name="shell">shell</a>
+                  <a href="#" data-language-name="java">java</a>
+                  <a href="#" data-language-name="ruby">ruby</a>
+                  <a href="#" data-language-name="python">python</a>
+            </div>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#payment-transaction" class="toc-h1 toc-link" data-title="Payment Transaction">Payment Transaction</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#payment-transaction-resource" class="toc-h2 toc-link" data-title="Payment Transaction Resource">Payment Transaction Resource</a>
-                  </li>
-                  <li>
-                    <a href="#payment-transactions" class="toc-h2 toc-link" data-title="Payment Transactions">Payment Transactions</a>
-                  </li>
-                  <li>
-                    <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
-                  </li>
-                  <li>
-                    <a href="#custom-fields" class="toc-h2 toc-link" data-title="Custom Fields">Custom Fields</a>
-                  </li>
-                  <li>
-                    <a href="#tags" class="toc-h2 toc-link" data-title="Tags">Tags</a>
-                  </li>
-              </ul>
-          </li>
-      </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='payment-transaction'>Payment Transaction</h1>
-<p>Payment transactions belong to a <a href="payment.html#payment-payment-resource">Payment</a> object.</p>
-
-<p>They represent a particular payment operation, such as authorization, chargeback, refund, etc. Most operations happen at the <code>Payment</code> level, but there are a few endpoints
-that work directly at the transaction level.</p>
-<h2 id='payment-transaction-resource'>Payment Transaction Resource</h2>
-<p>A <code>PaymentTransaction</code> is represented by a PaymentTransaction resource object. The attributes for this resource object are as follows:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Generated by</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>transactionId</strong></td>
-<td>string</td>
-<td>system</td>
-<td>UUID for the transaction</td>
-</tr>
-<tr>
-<td><strong>transactionExternalKey</strong></td>
-<td>string</td>
-<td>user or system</td>
-<td>Optional external key</td>
-</tr>
-<tr>
-<td><strong>paymentId</strong></td>
-<td>string</td>
-<td>system</td>
-<td>UUID for the payment</td>
-</tr>
-<tr>
-<td><strong>paymentExternalKey</strong></td>
-<td>string</td>
-<td>user or system</td>
-<td>Optional external key</td>
-</tr>
-<tr>
-<td><strong>transactionType</strong></td>
-<td>string</td>
-<td>user</td>
-<td>Transaction type (see below)</td>
-</tr>
-<tr>
-<td><strong>amount</strong></td>
-<td>number</td>
-<td>system</td>
-<td>Total amount of the transaction</td>
-</tr>
-<tr>
-<td><strong>currency</strong></td>
-<td>string</td>
-<td>user or system</td>
-<td>Currency associated with the account</td>
-</tr>
-<tr>
-<td><strong>effectiveDate</strong></td>
-<td>string</td>
-<td>user</td>
-<td>Effective date of the transaction</td>
-</tr>
-<tr>
-<td><strong>processedAmount</strong></td>
-<td>number</td>
-<td>system</td>
-<td>The amount processed by the gateway (see below)</td>
-</tr>
-<tr>
-<td><strong>processedCurrency</strong></td>
-<td>string</td>
-<td>system</td>
-<td>The currency processed by the gateay (see below)</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>string</td>
-<td>system</td>
-<td>Transaction status (see below)</td>
-</tr>
-<tr>
-<td><strong>gatewayErrorCode</strong></td>
-<td>string</td>
-<td>system</td>
-<td>Error code returned by the payment gateway</td>
-</tr>
-<tr>
-<td><strong>gatewayErrorMsg</strong></td>
-<td>string</td>
-<td>system</td>
-<td>Error message returned by the payment gateway</td>
-</tr>
-<tr>
-<td><strong>firstPaymentReferenceId</strong></td>
-<td>string</td>
-<td>system</td>
-<td>Payment gateway reference</td>
-</tr>
-<tr>
-<td><strong>secondPaymentReferenceId</strong></td>
-<td>string</td>
-<td>system</td>
-<td>see below</td>
-</tr>
-<tr>
-<td><strong>properties</strong></td>
-<td>string</td>
-<td>user</td>
-<td>see below</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><p><strong>transactionType</strong>: Possible values are: AUTHORIZE, CAPTURE, CHARGEBACK, CREDIT, PURCHASE, REFUND, VOID </p></li>
-<li><p><strong>processedAmount</strong>: This will often match <strong>amount</strong>, but could be different, perhaps due to currency conversion</p></li>
-<li><p><strong>processedCurrency</strong>: This will often match <strong>currency</strong>, but could be different, perhaps due to currency conversion</p></li>
-<li><p><strong>status</strong>: Possible values are: SUCCESS, UNKNOWN, PENDING, PAYMENT_FAILURE, PLUGIN_FAILURE, or PAYMENT_SYSTEM_OFF</p></li>
-<li><p><strong>secondPaymentReferenceId</strong>: Typically the ID from the actual payment processor, when the gateway is a PSP.</p></li>
-<li><p><strong>properties</strong>: Plugin-specific properties to be interpreted by the plugin</p></li>
-</ul>
-<h2 id='payment-transactions'>Payment Transactions</h2>
-<p>Endpoints to retrieve a <code>PaymentTransaction</code> object or to set the status of a pending transaction. Note that endpoints to generate payment transactions are provided with the <code>Payment</code> APIs. </p>
-<h3 id='retrieve-a-payment-by-transaction-id'>Retrieve a payment by transaction id</h3>
-<p>Retrieves a Payment object based on a PaymentTransaction id, which is given as a path parameter</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">);</span>
-<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="nc">Payment</span> <span class="n">payment</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getPaymentByTransactionId</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ad52f53-85ae-408a-9879-32a7e59dd03d"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"authAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"capturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"purchasedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"creditedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c02fa9b0-ae95-42ae-9010-bc11cb160947"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"firstPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"secondPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"paymentAttempts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>withPluginInfo</strong></td>
-<td>boolean</td>
-<td>no</td>
-<td>false</td>
-<td>If true, include plugin info</td>
-</tr>
-<tr>
-<td><strong>withAttempts</strong></td>
-<td>boolean</td>
-<td>no</td>
-<td>false</td>
-<td>if true, include payment attempts</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a payment object including the specified transaction.</p>
-<h3 id='retrieve-a-payment-transaction-by-external-key'>Retrieve a payment transaction by external key</h3>
-<p>Retrieve a Payment object based on a PaymentTransaction external key, which is given as a query parameter</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentTransactions</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions?transactionExternalKey=07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="nc">String</span> <span class="n">transactionExternalKey</span> <span class="o">=</span> <span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">;</span>
-<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="nc">Payment</span> <span class="n">payment</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getPaymentByTransactionExternalKey</span><span class="o">(</span><span class="n">transactionExternalKey</span><span class="o">,</span> <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ad52f53-85ae-408a-9879-32a7e59dd03d"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"authAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"capturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"purchasedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"creditedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c02fa9b0-ae95-42ae-9010-bc11cb160947"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"firstPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"secondPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"paymentAttempts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>transactionExternalKey</strong></td>
-<td>string</td>
-<td>yes</td>
-<td>none</td>
-<td>Transaction external key</td>
-</tr>
-<tr>
-<td><strong>withPluginInfo</strong></td>
-<td>boolean</td>
-<td>no</td>
-<td>false</td>
-<td>If true, include plugin info</td>
-</tr>
-<tr>
-<td><strong>withAttempts</strong></td>
-<td>boolean</td>
-<td>no</td>
-<td>false</td>
-<td>If true, include payment attempts</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a payment object including the specified transaction.</p>
-<h3 id='mark-a-pending-payment-transaction-as-succeeded-or-failed'>Mark a pending payment transaction as succeeded or failed</h3>
-<p>Sets the status of a PENDING <code>PaymentTransaction</code> to SUCCESS or PAYMENT_FAILURE</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>POST http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'{"paymentId": "e8edd4c6-2f85-4375-95f3-e78ca4d85b82", "status": "SUCCESS"}'</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"37d15a2f-55ac-40ab-a873-08faae78f213"</span><span class="o">);</span>
-<span class="nc">PaymentTransaction</span> <span class="n">paymentTransaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentTransaction</span><span class="o">();</span>
-<span class="n">paymentTransaction</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">TransactionStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">);</span>
-<span class="n">paymentTransaction</span><span class="o">.</span><span class="na">setPaymentId</span><span class="o">(</span><span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"27d15e39-b25c-4dc1-92cf-5487397a48a6"</span><span class="o">);</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">notifyStateChanged</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                         <span class="n">paymentTransaction</span><span class="o">,</span> 
-                                         <span class="kc">null</span><span class="o">,</span> 
-                                         <span class="n">requestOptions</span><span class="o">);</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
-<p><strong>Request Body</strong></p>
-
-<p>A <code>PaymentTransaction</code> object including, at least, a <code>paymentId</code> and a <code>status</code> (SUCCESS or PAYMENT_FAILURE)</p>
-
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 201 and the payment object.</p>
-<h2 id='audit-logs'>Audit Logs</h2>
-<p>Audit logs provide a record of events that occur involving various specific resources. For details on audit logs see <a href="https://killbill.github.io/slate/#using-kill-bill-apis-audit-and-history">Audit and History</a>.</p>
-<h3 id='retrieve-payment-transaction-audit-logs-with-history-by-id'>Retrieve payment transaction audit logs with history by id</h3>
-<p>Retrieves a list of audit log records showing events that occurred involving changes to a specified payment. History information is included with each record.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/auditLogsWithHistory</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad/auditLogsWithHistory"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">);</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionAuditLogsWithHistory</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                                                 <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84ac4088-dc76-4fde-9ff0-63e228b5e6fc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attemptId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPDATE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84ac4088-dc76-4fde-9ff0-63e228b5e6fc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attemptId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a list of account audit logs with history.</p>
-<h2 id='custom-fields'>Custom Fields</h2>
-<p>Custom fields are <code>{key, value}</code> attributes that can be attached to any customer resource. In particular they can be added to <code>PaymentTransaction</code> objects. For details on Custom Fields see <a href="custom-field.html">Custom Field</a>.</p>
-<h3 id='add-custom-fields-to-payment-transaction'>Add custom fields to payment transaction</h3>
-<p>Adds one or more custom fields to a <code>PaymentTransaction</code> object. Existing custom fields are not modified.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>POST http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/customFields</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[{ 
-            "name": "Test Custom Field",
-            "value": "test_value"
-    }]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-
-<span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="no">EMPTY_AUDIT_LOGS</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span>
-
-<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
-<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomField</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> 
-                                 <span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                 <span class="nc">ObjectType</span><span class="o">.</span><span class="na">TRANSACTION</span><span class="o">,</span> 
-                                 <span class="s">"Test Custom Field"</span><span class="o">,</span> 
-                                 <span class="s">"test_value"</span><span class="o">,</span> 
-                                 <span class="no">EMPTY_AUDIT_LOGS</span><span class="o">));</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">createTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFields</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">create_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="p">[</span><span class="n">body</span><span class="p">],</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Request Body</strong></p>
-
-<p>A JSON string representing the custom field object or objects to be added. For example:</p>
-
-<p>[ { &quot;name&quot;: &quot;CF1&quot;, &quot;value&quot;: &quot;123&quot; } ]</p>
-
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a 201 status code. In addition, a <code>Location</code> header is returned giving the URL to retrieve the custom fields associated with the payment transaction.</p>
-<h3 id='retrieve-payment-transaction-custom-fields'>Retrieve payment transaction custom fields</h3>
-<p>Retrieves the custom fields associated with a payment transaction</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/customFields</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomField</span><span class="o">&gt;</span> <span class="n">customFields</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span>
-                                                                                  <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
-                                                                                  <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">get_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4bac228-872d-4966-8072-2c3ac06442ed"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe697d4-2c25-482c-aa45-f6cd5a48186d"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>audit</strong></td>
-<td>string</td>
-<td>no</td>
-<td>&quot;NONE&quot;</td>
-<td>Level of audit information to return</td>
-</tr>
-</tbody></table>
-
-<p>Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a list of custom field objects</p>
-<h3 id='modify-custom-fields-for-a-payment-transaction'>Modify custom fields for a payment transaction</h3>
-<p>Modifies the custom fields associated with a <code>PaymentTransaction</code> object</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>PUT http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/customFields</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> PUT <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[{ 
-            "customFieldId": "e4bac228-872d-4966-8072-2c3ac06442ed",
-            "value": "NewValue"
-    }]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
-
-<span class="nc">CustomField</span> <span class="n">customFieldModified</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomField</span><span class="o">();</span>
-<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setCustomFieldId</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
-<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"NewValue"</span><span class="o">);</span>
-<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
-<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customFieldModified</span><span class="o">);</span>
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">modifyTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFields</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">custom_field_id</span> <span class="o">=</span> <span class="s">'9913e0f6-b5ef-498b-ac47-60e1626eba8f'</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">custom_field_id</span><span class="o">=</span><span class="n">custom_field_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Test Modify'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_modify_value'</span><span class="p">)</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">modify_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="p">[</span><span class="n">body</span><span class="p">],</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Requst Body</strong></p>
-
-<p>A JSON string representing a list of custom fields to substitute for the existing ones.
-For example:</p>
-
-<p>[ { &quot;customFieldId&quot;: &quot;6d4c073b-fd89-4e39-9802-eba65f42492f&quot;, &quot;value&quot;: &quot;123&quot; } ]</p>
-
-<p>Although the field name and object type can be specified in the request body, these cannot be modified, only the field value can be modified.</p>
-
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 204 and an empty body.</p>
-<h3 id='remove-custom-fields-from-a-payment-transaction'>Remove custom fields from a payment transaction</h3>
-<p>Removes a specified set of custom fields from a payment transaction object</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/customFields</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/77e23878-8b9d-403b-bf31-93003e125712/customFields?customField=e4bac228-872d-4966-8072-2c3ac06442ed'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
-<span class="nc">List</span><span class="o">&lt;</span><span class="no">UUID</span><span class="o">&gt;</span> <span class="n">customFieldsList</span> <span class="o">=</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">deleteTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFieldsList</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'f33e0adc-78df-438a-b920-aaacd7f8597a'</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">delete_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>customField</strong></td>
-<td>string</td>
-<td>yes</td>
-<td>none</td>
-<td>Comma separated list of custom field object IDs that should be deleted.</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 204 and an empty body.</p>
-<h2 id='tags'>Tags</h2>
-<p>See <a href="account.html#account-tags">Account Tags</a> for an introduction.</p>
-
-<p>The are no <code>system</code> tags applicable to a Payment Transaction.</p>
-<h3 id='add-tags-to-a-payment-transaction'>Add tags to a payment transaction</h3>
-<p>Adds one or more tags to a <code>PaymentTransaction</code> object. The tag definitions must already exist.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>POST http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/tags</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[
-            "353752dd-9041-4450-b782-a8bb03a923c8"
-        ]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"917992d3-5f1f-4828-9fff-799cc4211aa9"</span><span class="o">);</span>
-
-<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
-
-<span class="nc">Tags</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">createTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                          <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
-                                                          <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">create_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                              <span class="n">tag</span><span class="p">,</span>
-                                              <span class="n">created_by</span><span class="p">,</span>
-                                              <span class="n">api_key</span><span class="p">,</span>
-                                              <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Request Body</strong></p>
-
-<p>Provides a list of tag definition Ids in JSON format</p>
-
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a 201 status code. In addition, a <code>Location</code> header is returned giving the URL to retrieve the tags associated with the payment transaction.</p>
-<h3 id='retrieve-payment-transaction-tags'>Retrieve payment transaction tags</h3>
-<p>Retrieves all tags attached to this payment transaction.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/tags</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e659f0f3-745c-46d5-953c-28fe9282fc7d"</span><span class="o">);</span>
-
-<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted tags</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Tag</span><span class="o">&gt;</span> <span class="n">tags</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                          <span class="n">includedDeleted</span><span class="o">,</span> 
-                                                          <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">FULL</span><span class="o">,</span> 
-                                                          <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'28af3cb9-275b-4ac4-a55d-a0536e479069'</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">get_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"tagId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"890e3b13-3114-478b-9365-50f1a2682143"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe697d4-2c25-482c-aa45-f6cd5a48186d"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tagDefinitionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>includedDeleted</strong></td>
-<td>boolean</td>
-<td>no</td>
-<td>false</td>
-<td>If true, include deleted tags</td>
-</tr>
-<tr>
-<td><strong>audit</strong></td>
-<td>string</td>
-<td>no</td>
-<td>&quot;NONE&quot;</td>
-<td>Level of audit information to return</td>
-</tr>
-</tbody></table>
-
-<p>Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a list of tag objects.</p>
-<h3 id='remove-tags-from-a-payment-transaction'>Remove tags from a payment transaction</h3>
-<p>Removes a list of tags attached to a payment transaction.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>DELETE http://127.0.0.1:8080/1.0/kb/paymentTransactions/{transactionId}/tags</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags?tagDef=353752dd-9041-4450-b782-a8bb03a923c8'</span>    
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
-
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e659f0f3-745c-46d5-953c-28fe9282fc7d"</span><span class="o">);</span>
-
-<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">deleteTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                            <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
-                                            <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'dce5b2a0-0f0f-430b-9427-545ba4be5c7f'</span>
-<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span> 
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">delete_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                              <span class="n">created_by</span><span class="p">,</span>
-                                              <span class="n">api_key</span><span class="p">,</span>
-                                              <span class="n">api_secret</span><span class="p">,</span>
-                                              <span class="n">tag_def</span><span class="o">=</span><span class="n">tag</span><span class="p">)</span>
-</code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>tagDef</strong></td>
-<td>array of string</td>
-<td>yes</td>
-<td>none</td>
-<td>List of tag definition IDs identifying the tags that should be removed.</td>
-</tr>
-</tbody></table>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 204 and an empty body.</p>
-
+      </header>
+      <div class="loader-wrapper">
+        <div id="loading"></div>
       </div>
-      <div class="dark-box">
+      <script>
+        $(window).on('load',function(){
+          $('.loader-wrapper').hide();
+        });
+      </script>
+      <a href="#" id="nav-button">
+        <span>
+          NAV
+          <img src="images/navbar.png" alt="" />
+        </span>
+      </a>
+      <div class="toc-wrapper">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="java">java</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
           </div>
-
-        <div id="docsearch"></div>
-        
-        <div id="toc" class="toc-list-h1">
+        <ul id="toc" class="toc-list-h1">
             <li>
-              <a href="#payment-transaction" class="toc-h1 toc-link" data-title="Payment Transaction">Payment Transaction</a>
+                <a href="#payment-transaction" class="toc-h1 toc-link" data-title="Payment Transaction">Payment Transaction</a>
                 <ul class="toc-list-h2">
                     <li>
                       <a href="#payment-transaction-resource" class="toc-h2 toc-link" data-title="Payment Transaction Resource">Payment Transaction Resource</a>
                     </li>
                     <li>
                       <a href="#payment-transactions" class="toc-h2 toc-link" data-title="Payment Transactions">Payment Transactions</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#retrieve-a-payment-by-transaction-id" class="toc-h3 toc-link" data-title="Payment Transaction">Retrieve a payment by transaction id</a>
-                                </li>
-                                <li>
-                                  <a href="#retrieve-a-payment-transaction-by-external-key" class="toc-h3 toc-link" data-title="Payment Transaction">Retrieve a payment transaction by external key</a>
-                                </li>
-                                <li>
-                                  <a href="#mark-a-pending-payment-transaction-as-succeeded-or-failed" class="toc-h3 toc-link" data-title="Payment Transaction">Mark a pending payment transaction as succeeded or failed</a>
-                                </li>
-                          </ul>
                     </li>
                     <li>
                       <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#retrieve-payment-transaction-audit-logs-with-history-by-id" class="toc-h3 toc-link" data-title="Payment Transaction">Retrieve payment transaction audit logs with history by id</a>
-                                </li>
-                          </ul>
                     </li>
                     <li>
                       <a href="#custom-fields" class="toc-h2 toc-link" data-title="Custom Fields">Custom Fields</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#add-custom-fields-to-payment-transaction" class="toc-h3 toc-link" data-title="Payment Transaction">Add custom fields to payment transaction</a>
-                                </li>
-                                <li>
-                                  <a href="#retrieve-payment-transaction-custom-fields" class="toc-h3 toc-link" data-title="Payment Transaction">Retrieve payment transaction custom fields</a>
-                                </li>
-                                <li>
-                                  <a href="#modify-custom-fields-for-a-payment-transaction" class="toc-h3 toc-link" data-title="Payment Transaction">Modify custom fields for a payment transaction</a>
-                                </li>
-                                <li>
-                                  <a href="#remove-custom-fields-from-a-payment-transaction" class="toc-h3 toc-link" data-title="Payment Transaction">Remove custom fields from a payment transaction</a>
-                                </li>
-                          </ul>
                     </li>
                     <li>
                       <a href="#tags" class="toc-h2 toc-link" data-title="Tags">Tags</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#add-tags-to-a-payment-transaction" class="toc-h3 toc-link" data-title="Payment Transaction">Add tags to a payment transaction</a>
-                                </li>
-                                <li>
-                                  <a href="#retrieve-payment-transaction-tags" class="toc-h3 toc-link" data-title="Payment Transaction">Retrieve payment transaction tags</a>
-                                </li>
-                                <li>
-                                  <a href="#remove-tags-from-a-payment-transaction" class="toc-h3 toc-link" data-title="Payment Transaction">Remove tags from a payment transaction</a>
-                                </li>
-                          </ul>
                     </li>
                 </ul>
             </li>
-        </div>
+        </ul>
+          <ul class="toc-footer">
+              <li><a href="mailto:support@killbill.io">Report a doc problem </a></li>
+          </ul>
       </div>
       <div class="page-wrapper">
-        <div class="dark-box"></div>
         <div class="content">
           <h1 id='payment-transaction'>Payment Transaction</h1>
 <p>Payment transactions belong to a <a href="payment.html#payment-payment-resource">Payment</a> object.</p>
@@ -1485,61 +508,11 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">);</span>
-<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="nc">Payment</span> <span class="n">payment</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getPaymentByTransactionId</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ad52f53-85ae-408a-9879-32a7e59dd03d"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"authAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"capturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"purchasedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"creditedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c02fa9b0-ae95-42ae-9010-bc11cb160947"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"firstPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"secondPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"paymentAttempts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1580,62 +553,11 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions?transactionExternalKey=07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="nc">String</span> <span class="n">transactionExternalKey</span> <span class="o">=</span> <span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">;</span>
-<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="nc">Payment</span> <span class="n">payment</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getPaymentByTransactionExternalKey</span><span class="o">(</span><span class="n">transactionExternalKey</span><span class="o">,</span> <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ad52f53-85ae-408a-9879-32a7e59dd03d"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"authAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"capturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"purchasedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"refundedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"creditedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"paymentMethodId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c02fa9b0-ae95-42ae-9010-bc11cb160947"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"firstPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"secondPaymentReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"paymentAttempts"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1683,34 +605,7 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'{"paymentId": "e8edd4c6-2f85-4375-95f3-e78ca4d85b82", "status": "SUCCESS"}'</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"37d15a2f-55ac-40ab-a873-08faae78f213"</span><span class="o">);</span>
-<span class="nc">PaymentTransaction</span> <span class="n">paymentTransaction</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentTransaction</span><span class="o">();</span>
-<span class="n">paymentTransaction</span><span class="o">.</span><span class="na">setStatus</span><span class="o">(</span><span class="nc">TransactionStatus</span><span class="o">.</span><span class="na">SUCCESS</span><span class="o">);</span>
-<span class="n">paymentTransaction</span><span class="o">.</span><span class="na">setPaymentId</span><span class="o">(</span><span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"27d15e39-b25c-4dc1-92cf-5487397a48a6"</span><span class="o">);</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">notifyStateChanged</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                         <span class="n">paymentTransaction</span><span class="o">,</span> 
-                                         <span class="kc">null</span><span class="o">,</span> 
-                                         <span class="n">requestOptions</span><span class="o">);</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A <code>PaymentTransaction</code> object including, at least, a <code>paymentId</code> and a <code>status</code> (SUCCESS or PAYMENT_FAILURE)</p>
@@ -1734,92 +629,11 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/paymentTransactions/07655b3c-7f17-4172-b193-ece48e5741ad/auditLogsWithHistory"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"41f4d299-4371-4876-96b4-0b3cc81b246b"</span><span class="o">);</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionAuditLogsWithHistory</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                                                 <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
-</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84ac4088-dc76-4fde-9ff0-63e228b5e6fc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attemptId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPDATE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84ac4088-dc76-4fde-9ff0-63e228b5e6fc"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attemptId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8edd4c6-2f85-4375-95f3-e78ca4d85b82"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07655b3c-7f17-4172-b193-ece48e5741ad"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZE"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-18T18:58:11.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transactionStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processedCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gatewayErrorMsg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT_TRANSACTION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -1839,46 +653,7 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[{ 
-            "name": "Test Custom Field",
-            "value": "test_value"
-    }]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-
-<span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="no">EMPTY_AUDIT_LOGS</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span>
-
-<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
-<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomField</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> 
-                                 <span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                 <span class="nc">ObjectType</span><span class="o">.</span><span class="na">TRANSACTION</span><span class="o">,</span> 
-                                 <span class="s">"Test Custom Field"</span><span class="o">,</span> 
-                                 <span class="s">"test_value"</span><span class="o">,</span> 
-                                 <span class="no">EMPTY_AUDIT_LOGS</span><span class="o">));</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">createTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFields</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">create_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="p">[</span><span class="n">body</span><span class="p">],</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A JSON string representing the custom field object or objects to be added. For example:</p>
@@ -1902,39 +677,11 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomField</span><span class="o">&gt;</span> <span class="n">customFields</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span>
-                                                                                  <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
-                                                                                  <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">get_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4bac228-872d-4966-8072-2c3ac06442ed"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe697d4-2c25-482c-aa45-f6cd5a48186d"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1970,44 +717,7 @@ that work directly at the transaction level.</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> PUT <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[{ 
-            "customFieldId": "e4bac228-872d-4966-8072-2c3ac06442ed",
-            "value": "NewValue"
-    }]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/customFields'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
-
-<span class="nc">CustomField</span> <span class="n">customFieldModified</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomField</span><span class="o">();</span>
-<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setCustomFieldId</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
-<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"NewValue"</span><span class="o">);</span>
-<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
-<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customFieldModified</span><span class="o">);</span>
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">modifyTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFields</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">custom_field_id</span> <span class="o">=</span> <span class="s">'9913e0f6-b5ef-498b-ac47-60e1626eba8f'</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">custom_field_id</span><span class="o">=</span><span class="n">custom_field_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Test Modify'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_modify_value'</span><span class="p">)</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">modify_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="p">[</span><span class="n">body</span><span class="p">],</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>Requst Body</strong></p>
 
 <p>A JSON string representing a list of custom fields to substitute for the existing ones.
@@ -2034,32 +744,7 @@ For example:</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/77e23878-8b9d-403b-bf31-93003e125712/customFields?customField=e4bac228-872d-4966-8072-2c3ac06442ed'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
-<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
-<span class="nc">List</span><span class="o">&lt;</span><span class="no">UUID</span><span class="o">&gt;</span> <span class="n">customFieldsList</span> <span class="o">=</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">deleteTransactionCustomFields</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                    <span class="n">customFieldsList</span><span class="o">,</span> 
-                                                    <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'f33e0adc-78df-438a-b920-aaacd7f8597a'</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">delete_transaction_custom_fields</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                                       <span class="n">created_by</span><span class="p">,</span>
-                                                       <span class="n">api_key</span><span class="p">,</span>
-                                                       <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -2097,38 +782,7 @@ For example:</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'[
-            "353752dd-9041-4450-b782-a8bb03a923c8"
-        ]'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"917992d3-5f1f-4828-9fff-799cc4211aa9"</span><span class="o">);</span>
-
-<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
-
-<span class="nc">Tags</span> <span class="n">result</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">createTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                          <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
-                                                          <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">create_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                              <span class="n">tag</span><span class="p">,</span>
-                                              <span class="n">created_by</span><span class="p">,</span>
-                                              <span class="n">api_key</span><span class="p">,</span>
-                                              <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>Provides a list of tag definition Ids in JSON format</p>
@@ -2150,44 +804,11 @@ For example:</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags'</span> 
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e659f0f3-745c-46d5-953c-28fe9282fc7d"</span><span class="o">);</span>
-
-<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted tags</span>
-
-<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Tag</span><span class="o">&gt;</span> <span class="n">tags</span> <span class="o">=</span> <span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">getTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                                          <span class="n">includedDeleted</span><span class="o">,</span> 
-                                                          <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">FULL</span><span class="o">,</span> 
-                                                          <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'28af3cb9-275b-4ac4-a55d-a0536e479069'</span>
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">get_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
-</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"tagId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"890e3b13-3114-478b-9365-50f1a2682143"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe697d4-2c25-482c-aa45-f6cd5a48186d"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tagDefinitionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -2230,35 +851,7 @@ For example:</p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiKey: bob'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-ApiSecret: lazar'</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s1">'X-Killbill-CreatedBy: demo'</span> <span class="se">\</span>
-    <span class="s1">'http://127.0.0.1:8080/1.0/kb/paymentTransactions/8fe697d4-2c25-482c-aa45-f6cd5a48186d/tags?tagDef=353752dd-9041-4450-b782-a8bb03a923c8'</span>    
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.PaymentTransactionApi</span><span class="o">;</span>
-<span class="kd">protected</span> <span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span><span class="o">;</span>
 
-<span class="no">UUID</span> <span class="n">paymentTransactionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"e659f0f3-745c-46d5-953c-28fe9282fc7d"</span><span class="o">);</span>
-
-<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
-
-<span class="n">paymentTransactionApi</span><span class="o">.</span><span class="na">deleteTransactionTags</span><span class="o">(</span><span class="n">paymentTransactionId</span><span class="o">,</span> 
-                                            <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
-                                            <span class="n">requestOptions</span><span class="o">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">PaymentTransactionApi</span><span class="p">()</span>
-
-<span class="n">payment_transaction_id</span> <span class="o">=</span> <span class="s">'dce5b2a0-0f0f-430b-9427-545ba4be5c7f'</span>
-<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span> 
-
-<span class="n">paymentTransactionApi</span><span class="p">.</span><span class="n">delete_transaction_tags</span><span class="p">(</span><span class="n">payment_transaction_id</span><span class="p">,</span>
-                                              <span class="n">created_by</span><span class="p">,</span>
-                                              <span class="n">api_key</span><span class="p">,</span>
-                                              <span class="n">api_secret</span><span class="p">,</span>
-                                              <span class="n">tag_def</span><span class="o">=</span><span class="n">tag</span><span class="p">)</span>
-</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -2285,27 +878,48 @@ For example:</p>
 
         </div>
         <div class="dark-box">
-            <div class="lang-selector">
-                  <a href="#" data-language-name="shell">shell</a>
-                  <a href="#" data-language-name="java">java</a>
-                  <a href="#" data-language-name="ruby">ruby</a>
-                  <a href="#" data-language-name="python">python</a>
-            </div>
+          <div id="docsearch"></div>
         </div>
       </div>
-    </div>
-  </body>
-  <script>
-    setTimeout(function(){
-      $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
-      $('.content h2, .content h3, .content h4').each(function(){
-        let itemHref = '#' + $(this).attr('id');
-        $(this).find('a').attr("href", itemHref);
-      });
-    });
-  </script>
-  <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>	
-  
-  <script >docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});</script>
-</html>
+    </body>
+    <script>
+      setTimeout(function(){
+        $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
+        $('.content h2, .content h3, .content h4').each(function(){
+          let itemHref = '#' + $(this).attr('id');
+          $(this).find('a').attr("href", itemHref);
+        });
+      })
 
+      setTimeout(() => {
+        let childs = []
+        let temp = (val) => `<div>${val}</div>`;
+        let group = document.createElement('div');
+        let groups = []
+
+        for(elem of $('.content').children()) {
+          if(elem.tagName === 'H2') {
+            groups.push(childs);
+            childs = []
+          }
+          childs.push(elem);
+        };
+
+        groups.map(elem => {
+          let newElem = document.createElement('div');
+          newElem.id = elem[0].id;
+          elem.map(el => {
+            newElem.appendChild(el)
+          });
+
+          $('.content').append(newElem)
+        })
+
+        console.log(groups)
+      }, 1000)
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
+    <script>
+      docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});
+    </script>
+  </html>

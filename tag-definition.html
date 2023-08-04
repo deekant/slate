@@ -1,14 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Kill Bill</title>
-
-    <style media="screen">
-      .highlight table td { padding: 5px; }
+      <title>Kill Bill</title>
+      <style media="screen">
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
   color: #999999;
@@ -195,13 +193,13 @@
 .highlight .o {
   color: #f92672;
 }
-    </style>
-    <style media="print">
-      * {
-        -webkit-transition:none!important;
-        transition:none!important;
-      }
-      .highlight table td { padding: 5px; }
+      </style>
+      <style media="print">
+        * {
+          -webkit-transition:none!important;
+          transition:none!important;
+        }
+        .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
   color: #586e75;
@@ -281,414 +279,94 @@
 .highlight .ss {
   color: #859900;
 }
-    </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
-
-  </head>
-
-  <body class="tag-definition" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
-    <div class="loader-wrapper">
-      <div id="loading"></div>           
-    </div>
-    <script>
-      $(window).on('load',function(){
-        $('.loader-wrapper').hide();
-      });
-    </script>
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+      </style>
+      <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+      <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+        <script src="javascripts/all.js"></script>
+        <script>
+          $(function() { setupCodeCopy(); });
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+    </head>
+    <body class="tag-definition" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+      <header class="header sticky" id="header">
+        <div class="header-wrapper">
+          <div class="header-logo">
+          <div class="logo-switch-wrapper">
+              <div class="logo">
+              <a href="/">
+                <img src="images/logo/light-logo.svg" style="height:38px" alt="Kill Bill Docs" id="logo">
+              </a>
+            </div>
+            <div class="switch">
+              <input type="checkbox" id="theme-toggle">
+              <span class="slider round"></span>
+            </div>
+          </div>
+            <div class="header-search">
+              <div class="search-form-wrapper">
+                <div id="docsearch" style="height: 43px; display: flex; align-items: center; width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-toggler sidebar-toggler">
+            <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7C20.75 7.41421 20.4142 7.75 20 7.75L4 7.75C3.58579 7.75 3.25 7.41421 3.25 7C3.25 6.58579 3.58579 6.25 4 6.25L20 6.25C20.4142 6.25 20.75 6.58579 20.75 7Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z" fill=""/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 17C20.75 17.4142 20.4142 17.75 20 17.75L4 17.75C3.58579 17.75 3.25 17.4142 3.25 17C3.25 16.5858 3.58579 16.25 4 16.25L20 16.25C20.4142 16.25 20.75 16.5858 20.75 17Z" fill=""/>
+            </svg>
+          </div>
+            <div class="lang-selector">
+                  <a href="#" data-language-name="shell">shell</a>
+                  <a href="#" data-language-name="java">java</a>
+                  <a href="#" data-language-name="ruby">ruby</a>
+                  <a href="#" data-language-name="python">python</a>
+            </div>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#tag-definition" class="toc-h1 toc-link" data-title="Tag Definition">Tag Definition</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#tag-definition-resource" class="toc-h2 toc-link" data-title="Tag Definition Resource">Tag Definition Resource</a>
-                  </li>
-                  <li>
-                    <a href="#tag-definition-2" class="toc-h2 toc-link" data-title="Tag Definition">Tag Definition</a>
-                  </li>
-                  <li>
-                    <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
-                  </li>
-              </ul>
-          </li>
-      </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='tag-definition'>Tag Definition</h1>
-<p>These APIs manage a tag definition resource object, which provides the definition for a user-defined tag.</p>
-<h2 id='tag-definition-resource'>Tag Definition Resource</h2>
-<p>Each tag is associated with a specific tag definition. A tag definition is a schema or template, and a tag is an instance of it. Please refer to the section <a href="account.html#account-tags">AccountTags</a> for an overview of tags. The system provides some <code>System tag definitions</code> that can be used to add tags to a particular object. Users may define their own tags; however, when using <code>User Tags</code>, one must first create the associated tag definition.</p>
-
-<p>The tag definition resource includes the following attributes:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Generated by</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>id</strong></td>
-<td>string</td>
-<td>system</td>
-<td>UUID for the tag definition</td>
-</tr>
-<tr>
-<td><strong>isControlTag</strong></td>
-<td>boolean</td>
-<td>system</td>
-<td>True if this is a control tag</td>
-</tr>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td>user</td>
-<td>Name of the tag definition</td>
-</tr>
-<tr>
-<td><strong>description</strong></td>
-<td>string</td>
-<td>user</td>
-<td>Description of the tag definition</td>
-</tr>
-<tr>
-<td><strong>applicableObjectTypes</strong></td>
-<td>list</td>
-<td>user</td>
-<td>see below</td>
-</tr>
-</tbody></table>
-
-<ul>
-<li><strong>applicableObjectTypes</strong>:  A list giving the name(s) of resource types that can be given this tag.</li>
-</ul>
-<h2 id='tag-definition-2'>Tag Definition</h2>
-<p>The APIs in this group provide the ability to create, retrieve, and delete tag definitions, and also to access their associated audit logs.</p>
-<h3 id='create-a-tag-definition'>Create a tag definition</h3>
-<p>Creates a new tag definition.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>POST http://127.0.0.1:8080/1.0/kb/tagDefinitions</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'{ "name": "good_customer", "description": "a good customer", "applicableObjectTypes": ["ACCOUNT"]}'</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">no</span><span class="w"> </span><span class="err">content</span><span class="w">
-</span></code></pre></div>
-<p><strong>Request Body</strong></p>
-
-<p>A TagDefinition resource object with at least the following attributes: <strong>name</strong>, <strong>description</strong>, and <strong>applicableObjectTypes</strong>. The list of <strong>applicableObjectTypes</strong> may not be empty. </p>
-
-<p><strong>Query Parameters</strong></p>
-
-<p>none</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 201 and an empty body.</p>
-<h3 id='list-tag-definitions'>List tag definitions</h3>
-<p>Lists all tag definitions for this tenant</p>
-
-<p><strong>HTTP Request</strong></p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/tagDefinitions</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="err">,</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTO_PAY_OFF"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suspends payments until removed."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w"> 
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>audit</strong></td>
-<td>string</td>
-<td>no</td>
-<td>&quot;NONE&quot;</td>
-<td>Level of audit information to return</td>
-</tr>
-</tbody></table>
-
-<p>Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a list of tag definition objects.</p>
-<h3 id='retrieve-a-tag-definition-by-its-id'>Retrieve a tag definition by its ID</h3>
-<p>Retrieves an existing tag definition.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/tagDefinitions/{tagDefinitionId}</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>audit</strong></td>
-<td>string</td>
-<td>no</td>
-<td>&quot;NONE&quot;</td>
-<td>Level of audit information to return</td>
-</tr>
-</tbody></table>
-
-<p>Audit information options are &quot;NONE&quot;, &quot;MINIMAL&quot; (only inserts), or &quot;FULL&quot;.</p>
-
-<p><strong>Returns</strong></p>
-
-<p>If successful, returns a status code of 200 and a tag definition object.</p>
-<h3 id='delete-a-tag-definition'>Delete a tag definition</h3>
-<p>Deletes a tag definition.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>DELETE http://127.0.0.1:8080/1.0/kb/tagDefinitions/{tagDefinitionId}</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">no</span><span class="w"> </span><span class="err">content</span><span class="w">
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 204 and an empty body.</p>
-<h2 id='audit-logs'>Audit Logs</h2>
-<p>Audit logs provide a record of events that occur involving various specific resources. For details on audit logs see <a href="https://killbill.github.io/slate/#using-kill-bill-apis-audit-and-history">Audit and History</a>.</p>
-<h3 id='retrieve-tag-definition-audit-logs-with-history-by-id'>Retrieve tag definition audit logs with history by id</h3>
-<p>Retrieves a list of audit log records showing events that occurred involving changes to a specified tag definition. History information is included with each record.</p>
-
-<p><strong>HTTP Request</strong> </p>
-
-<p><code>GET http://127.0.0.1:8080/1.0/kb/tagDefinitions/{tagDefinitionId}/auditLogsWithHistory</code></p>
-
-<blockquote>
-<p>Example Request:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/92991586-df8a-4d8d-9d55-61172c52fa45/auditLogsWithHistory"</span>
-</code></pre></div>
-<blockquote>
-<p>Example Response:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92991586-df8a-4d8d-9d55-61172c52fa45"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"039f01ea-460a-4edd-bfbc-39a68149cad2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-
-</span></code></pre></div>
-<p><strong>Query Parameters</strong></p>
-
-<p>None.</p>
-
-<p><strong>Response</strong></p>
-
-<p>If successful, returns a status code of 200 and a list of tag definition audit logs with history.</p>
-
+      </header>
+      <div class="loader-wrapper">
+        <div id="loading"></div>
       </div>
-      <div class="dark-box">
+      <script>
+        $(window).on('load',function(){
+          $('.loader-wrapper').hide();
+        });
+      </script>
+      <a href="#" id="nav-button">
+        <span>
+          NAV
+          <img src="images/navbar.png" alt="" />
+        </span>
+      </a>
+      <div class="toc-wrapper">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="java">java</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
           </div>
-
-        <div id="docsearch"></div>
-        
-        <div id="toc" class="toc-list-h1">
+        <ul id="toc" class="toc-list-h1">
             <li>
-              <a href="#tag-definition" class="toc-h1 toc-link" data-title="Tag Definition">Tag Definition</a>
+                <a href="#tag-definition" class="toc-h1 toc-link" data-title="Tag Definition">Tag Definition</a>
                 <ul class="toc-list-h2">
                     <li>
                       <a href="#tag-definition-resource" class="toc-h2 toc-link" data-title="Tag Definition Resource">Tag Definition Resource</a>
                     </li>
                     <li>
                       <a href="#tag-definition-2" class="toc-h2 toc-link" data-title="Tag Definition">Tag Definition</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#create-a-tag-definition" class="toc-h3 toc-link" data-title="Tag Definition">Create a tag definition</a>
-                                </li>
-                                <li>
-                                  <a href="#list-tag-definitions" class="toc-h3 toc-link" data-title="Tag Definition">List tag definitions</a>
-                                </li>
-                                <li>
-                                  <a href="#retrieve-a-tag-definition-by-its-id" class="toc-h3 toc-link" data-title="Tag Definition">Retrieve a tag definition by its ID</a>
-                                </li>
-                                <li>
-                                  <a href="#delete-a-tag-definition" class="toc-h3 toc-link" data-title="Tag Definition">Delete a tag definition</a>
-                                </li>
-                          </ul>
                     </li>
                     <li>
                       <a href="#audit-logs" class="toc-h2 toc-link" data-title="Audit Logs">Audit Logs</a>
-                          <ul class="toc-list-h3">
-                                <li>
-                                  <a href="#retrieve-tag-definition-audit-logs-with-history-by-id" class="toc-h3 toc-link" data-title="Tag Definition">Retrieve tag definition audit logs with history by id</a>
-                                </li>
-                          </ul>
                     </li>
                 </ul>
             </li>
-        </div>
+        </ul>
+          <ul class="toc-footer">
+              <li><a href="mailto:support@killbill.io">Report a doc problem </a></li>
+          </ul>
       </div>
       <div class="page-wrapper">
-        <div class="dark-box"></div>
         <div class="content">
           <h1 id='tag-definition'>Tag Definition</h1>
 <p>These APIs manage a tag definition resource object, which provides the definition for a user-defined tag.</p>
@@ -752,25 +430,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> POST <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="nt">-d</span> <span class="s1">'{ "name": "good_customer", "description": "a good customer", "applicableObjectTypes": ["ACCOUNT"]}'</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
-</code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">no</span><span class="w"> </span><span class="err">content</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Request Body</strong></p>
 
 <p>A TagDefinition resource object with at least the following attributes: <strong>name</strong>, <strong>description</strong>, and <strong>applicableObjectTypes</strong>. The list of <strong>applicableObjectTypes</strong> may not be empty. </p>
@@ -792,37 +456,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="err">,</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTO_PAY_OFF"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suspends payments until removed."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w"> 
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -858,27 +496,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isControlTag"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"ACCOUNT"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -914,22 +536,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
-    <span class="nt">-X</span> DELETE <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Reason: demo"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-Comment: demo"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/93f2bc59-e18d-4a5e-a645-9386c76fc03f"</span>
-</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">no</span><span class="w"> </span><span class="err">content</span><span class="w">
-</span></code></pre></div>
+
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -949,44 +560,11 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-    <span class="nt">-u</span> admin:password <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tagDefinitions/92991586-df8a-4d8d-9d55-61172c52fa45/auditLogsWithHistory"</span>
-</code></pre></div>
+
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITION"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92991586-df8a-4d8d-9d55-61172c52fa45"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"039f01ea-460a-4edd-bfbc-39a68149cad2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-26T01:56:48.000Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"good_customer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"applicableObjectTypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a good customer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITIONS"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_DEFINITION_HISTORY"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
 
-</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -997,27 +575,48 @@
 
         </div>
         <div class="dark-box">
-            <div class="lang-selector">
-                  <a href="#" data-language-name="shell">shell</a>
-                  <a href="#" data-language-name="java">java</a>
-                  <a href="#" data-language-name="ruby">ruby</a>
-                  <a href="#" data-language-name="python">python</a>
-            </div>
+          <div id="docsearch"></div>
         </div>
       </div>
-    </div>
-  </body>
-  <script>
-    setTimeout(function(){
-      $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
-      $('.content h2, .content h3, .content h4').each(function(){
-        let itemHref = '#' + $(this).attr('id');
-        $(this).find('a').attr("href", itemHref);
-      });
-    });
-  </script>
-  <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>	
-  
-  <script >docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});</script>
-</html>
+    </body>
+    <script>
+      setTimeout(function(){
+        $('.content h2, .content h3, .content h4').append('<a href=""><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>');
+        $('.content h2, .content h3, .content h4').each(function(){
+          let itemHref = '#' + $(this).attr('id');
+          $(this).find('a').attr("href", itemHref);
+        });
+      })
 
+      setTimeout(() => {
+        let childs = []
+        let temp = (val) => `<div>${val}</div>`;
+        let group = document.createElement('div');
+        let groups = []
+
+        for(elem of $('.content').children()) {
+          if(elem.tagName === 'H2') {
+            groups.push(childs);
+            childs = []
+          }
+          childs.push(elem);
+        };
+
+        groups.map(elem => {
+          let newElem = document.createElement('div');
+          newElem.id = elem[0].id;
+          elem.map(el => {
+            newElem.appendChild(el)
+          });
+
+          $('.content').append(newElem)
+        })
+
+        console.log(groups)
+      }, 1000)
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
+    <script>
+      docsearch({apiKey: '3ef227e7fd5e2e1a3fffd880484934bf', container: '#docsearch', appId: 'S2ISXITURI', indexName: 'killbill_slate'});
+    </script>
+  </html>
