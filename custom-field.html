@@ -465,11 +465,28 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/customFields/pagination"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<h3 id='search-custom-fields-by-id'>Search custom fields by ID</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"212211f8-a264-4ddf-b609-709ae652aec4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"importance"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='search-custom-fields-by-id'>Search custom fields by ID</h3>
 <p>Searches for a specific custom field by its ID</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -517,11 +534,28 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/customFields/search/13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<h3 id='search-custom-fields-by-resource-type-name-and-optional-value'>Search custom fields by resource type, name, and optional value</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"212211f8-a264-4ddf-b609-709ae652aec4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"importance"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='search-custom-fields-by-resource-type-name-and-optional-value'>Search custom fields by resource type, name, and optional value</h3>
 <p>Searches for a specific custom field by its resource type, name, and optional value</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -590,11 +624,28 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/customFields/search?objectType=ACCOUNT&amp;fieldName=importance"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<h2 id='audit-logs'>Audit Logs</h2><h3 id='retrieve-custom-field-audit-logs-with-history-by-custom-field-id'>Retrieve custom field audit logs with history by custom field id</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"212211f8-a264-4ddf-b609-709ae652aec4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"importance"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='audit-logs'>Audit Logs</h2><h3 id='retrieve-custom-field-audit-logs-with-history-by-custom-field-id'>Retrieve custom field audit logs with history by custom field id</h3>
 <p><strong>HTTP Request</strong> </p>
 
 <p><code>GET http://127.0.0.1:8080/1.0/kb/customFields/{customFieldId}/auditLogsWithHistory</code></p>
@@ -602,11 +653,94 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://localhost:8080/1.0/kb/customFields/4b498210-b177-4aae-a539-cf594adaa221/auditLogsWithHistory"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b498210-b177-4aae-a539-cf594adaa221"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_custom_fields"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b3920ae-6b8c-4deb-9ed9-132ff632e692"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01968143-c64b-41d4-94cb-d65748b0f5b6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPDATE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b498210-b177-4aae-a539-cf594adaa221"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_custom_fields"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6343d19f-cef0-486a-8114-85c7573639a0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another_test_value"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01968143-c64b-41d4-94cb-d65748b0f5b6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4b498210-b177-4aae-a539-cf594adaa221"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_custom_fields"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a9343bd-9cba-417b-be17-713ff456b5f7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-01T06:00:01.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fieldValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"another_test_value"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01968143-c64b-41d4-94cb-d65748b0f5b6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOM_FIELD_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -667,6 +801,7 @@
         let h2Occurence = 0;
 
         content.each((index, element) => {
+          console.log(element.classList)
           if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
             allSections.push(oneSection);
             oneSection = [];
@@ -681,7 +816,7 @@
       }
 
       setTimeout(() => {
-        restructureDOM()
+        restructureDOM();
       }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>

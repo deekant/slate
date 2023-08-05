@@ -573,7 +573,15 @@
 <p><strong><code>Events</code></strong>: possible event types are START_ENTITLEMENT, START_BILLING, PAUSE_ENTITLEMENT, PAUSE_BILLING, RESUME_ENTITLEMENT, RESUME_BILLING, PHASE, CHANGE, STOP_ENTITLEMENT, STOP_BILLING, SERVICE_STATE_CHANGE</p>
 
 <p><strong><code>priceOverrides</code></strong>:  List of overridden prices for specific plan phases. Can be specified to override the fixed/recurring price in the catalog for a particular phase. For example, suppose you are creating a subscription corresponding to a plan that has an <code>EVERGREEN</code> phase with a recurring price of <code>$100</code>. You can specify an overridden price of <code>200</code> while creating the subscription by specifying a <code>priceOverrides</code> object as follows:</p>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="s2">"priceOverrides"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"planName"</span>: <span class="s2">"shotgun-monthly"</span>,
+            <span class="s2">"phaseType"</span>: <span class="s2">"DISCOUNT"</span>,
+            <span class="s2">"fixedPrice"</span>: null,
+            <span class="s2">"recurringPrice"</span>: 150.00,
+            <span class="s2">"usagePrices"</span>: <span class="o">[]</span>
+        <span class="o">}</span>
+</code></pre></div>
 <p><strong>quantity</strong>: An integer value that specifies the quantity of subscription. The default value is 1. The corresponding invoice is generated as per the quantity. So if <code>price=$20/mo</code>, <code>quantity=$2</code> =&gt; <code>invoiceItem recurring amount=$40</code>.</p>
 <h2 id='subscriptions'>Subscriptions</h2>
 <p>These endpoints support the basic CRUD operations on Subscriptions.</p>
@@ -587,7 +595,138 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>
+<span class="c"># With planName</span>
+curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "accountId": "581d86fc-7cfc-46f2-b6d4-4dbc1d98beb3",
+            "externalKey": "somethingSpecial",
+            "planName": "super-monthly"
+        }'</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/subscriptions"</span> 
 
+<span class="c"># With productName, productCategory and billingPeriod</span>
+
+    curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+          "accountId": "59afd9fe-e98d-4fb3-b5bf-21d4a2b036cd",
+            "externalKey": "somethingSpecial", 
+            "productName": "Test", 
+            "productCategory": "BASE",  
+            "billingPeriod": "MONTHLY",
+            "priceList": "DEFAULT"
+        }'</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/subscriptions"</span>    
+
+<span class="c"># With priceOverrides</span>
+
+    curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "accountId": "187f9270-7aa0-4db5-81f7-857e8e59fd9a",
+            "planName": "shotgun-monthly",
+             "prices": [
+        {
+            "planName": "shotgun-monthly",
+            "phaseType": "DISCOUNT",
+            "fixedPrice": 150.00,
+            "recurringPrice": null,
+            "usagePrices": []
+        },
+        {
+            "planName": "shotgun-monthly",
+            "phaseType": "EVERGREEN",
+            "fixedPrice": null,
+            "recurringPrice": 400.00,
+            "usagePrices": []
+        }       
+    ]
+        }'</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/subscriptions"</span> 
+
+<span class="c"># With Datetime</span>
+
+curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "accountId": "325fbe1c-7c35-4d96-a4e5-2cbaabe218c6",
+            "planName": "pistol-monthly-notrial"
+        }'</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/subscriptions?billingDate=2023-02-07T11:15&amp;entitlementDate=2023-02-07T11:15"</span> 
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">accountId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"905a0636-ab63-40c0-acd4-b461b6808b5d"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">input</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">input</span><span class="o">.</span><span class="na">setExternalKey</span><span class="o">(</span><span class="s">"somethingSpecial"</span><span class="o">);</span>
+<span class="n">input</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"shotgun-monthly"</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">entitlementDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">LocalDate</span> <span class="n">billingDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">renameKeyIfExistsAndUnused</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> 
+<span class="nc">Boolean</span> <span class="n">migrated</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">skipResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">callCompletion</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="kt">long</span> <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">Subscription</span> <span class="n">subscription</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">createSubscription</span><span class="o">(</span><span class="n">input</span><span class="o">,</span> 
+                                                               <span class="n">entitlementDate</span><span class="o">,</span> 
+                                                               <span class="n">billingDate</span><span class="o">,</span> 
+                                                               <span class="n">renameKeyIfExistsAndUnused</span><span class="o">,</span> 
+                                                               <span class="n">migrated</span><span class="o">,</span>
+                                                               <span class="n">skipResponse</span><span class="o">,</span>  
+                                                               <span class="n">callCompletion</span><span class="o">,</span> 
+                                                               <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span><span class="o">,</span> 
+                                                               <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription</span>              <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">account_id</span>   <span class="o">=</span> <span class="s2">"e1826665-4524-4d57-81b5-a5eb11146f3f"</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">plan_name</span>    <span class="o">=</span> <span class="s2">"basic-monthly-in-advance"</span>
+
+<span class="n">requested_date</span>  <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">call_completion</span> <span class="o">=</span> <span class="kp">nil</span> 
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> 
+                    <span class="n">reason</span><span class="p">,</span> 
+                    <span class="n">comment</span><span class="p">,</span> 
+                    <span class="n">requested_date</span><span class="p">,</span> 
+                    <span class="n">call_completion</span><span class="p">,</span> 
+                    <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">account_id</span> <span class="o">=</span> <span class="s">'e1826665-4524-4d57-81b5-a5eb11146f3f'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span> <span class="n">plan_name</span><span class="o">=</span><span class="s">'standard-monthly'</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">create_subscription</span><span class="p">(</span><span class="n">body</span><span class="p">,</span>
+                                    <span class="n">created_by</span><span class="p">,</span>
+                                    <span class="n">api_key</span><span class="p">,</span>
+                                    <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A subscription resource object specifying <code>accountId</code> and either the <code>planName</code> or a combination of <code>productName</code>, <code>productCategory</code>,<code>billingPeriod</code> and <code>priceList</code>. </p>
@@ -678,7 +817,149 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[
+          {
+            "accountId": "581d86fc-7cfc-46f2-b6d4-4dbc1d98beb3",
+            "externalKey": "something",
+            "bundleExternalKey": "somethingAlso",
+            "productName": "Sports",
+            "productCategory": "BASE",
+            "billingPeriod": "MONTHLY",
+            "priceList": "DEFAULT"
+        },
+        {
+          "accountId": "581d86fc-7cfc-46f2-b6d4-4dbc1d98beb3",
+          "productName": "OilSlick",
+          "productCategory": "ADD_ON",
+          "billingPeriod": "MONTHLY",
+          "priceList": "DEFAULT"
+        }
+        ]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/createSubscriptionWithAddOns'</span> 
 
+OR
+
+curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[
+
+        {
+          "accountId": "1f635c3d-fc24-4fa8-81e0-ab646882807a",
+          "planName": "remotecontrol-monthly",
+          "bundleId":"b4709feb-bd14-455a-bbb4-57a758498791"
+        }
+        ]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/createSubscriptionWithAddOns'</span>   
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">accountId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"abfba40d-d2dd-47f0-94f2-8ea3e6bc8794"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setExternalKey</span><span class="o">(</span><span class="s">"base"</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setProductName</span><span class="o">(</span><span class="s">"Shotgun"</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setProductCategory</span><span class="o">(</span><span class="nc">ProductCategory</span><span class="o">.</span><span class="na">BASE</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setBillingPeriod</span><span class="o">(</span><span class="nc">BillingPeriod</span><span class="o">.</span><span class="na">MONTHLY</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setPriceList</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">Subscription</span> <span class="n">addOn1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setProductName</span><span class="o">(</span><span class="s">"Telescopic-Scope"</span><span class="o">);</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setProductCategory</span><span class="o">(</span><span class="nc">ProductCategory</span><span class="o">.</span><span class="na">ADD_ON</span><span class="o">);</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setBillingPeriod</span><span class="o">(</span><span class="nc">BillingPeriod</span><span class="o">.</span><span class="na">MONTHLY</span><span class="o">);</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setPriceList</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">Subscription</span> <span class="n">addOn2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">addOn2</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">addOn2</span><span class="o">.</span><span class="na">setProductName</span><span class="o">(</span><span class="s">"Laser-Scope"</span><span class="o">);</span>
+<span class="n">addOn2</span><span class="o">.</span><span class="na">setProductCategory</span><span class="o">(</span><span class="nc">ProductCategory</span><span class="o">.</span><span class="na">ADD_ON</span><span class="o">);</span>
+<span class="n">addOn2</span><span class="o">.</span><span class="na">setBillingPeriod</span><span class="o">(</span><span class="nc">BillingPeriod</span><span class="o">.</span><span class="na">MONTHLY</span><span class="o">);</span>
+<span class="n">addOn2</span><span class="o">.</span><span class="na">setPriceList</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">Subscriptions</span> <span class="n">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscriptions</span><span class="o">();</span>
+<span class="n">subscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>
+<span class="n">subscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">addOn1</span><span class="o">);</span>
+<span class="n">subscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">addOn2</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">entitlementDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">LocalDate</span> <span class="n">billingDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">migrated</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">skipResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">renameKeyIfExistsAndUnused</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">callCompletion</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="kt">long</span> <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="kd">final</span> <span class="nc">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">createSubscriptionWithAddOns</span><span class="o">(</span><span class="n">subscriptions</span><span class="o">,</span> 
+                                                                   <span class="n">entitlementDate</span><span class="o">,</span> 
+                                                                   <span class="n">billingDate</span><span class="o">,</span> 
+                                                                   <span class="n">migrated</span><span class="o">,</span> 
+                                                                   <span class="n">skipResponse</span><span class="o">,</span>
+                                                                   <span class="n">renameKeyIfExistsAndUnused</span><span class="o">,</span> 
+                                                                   <span class="n">callCompletion</span><span class="o">,</span> 
+                                                                   <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span><span class="o">,</span> 
+                                                                   <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                                                   <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">entitlement</span> <span class="o">=</span> <span class="p">[</span>
+                 <span class="p">{</span>
+                    <span class="s2">"baseEntitlementAndAddOns"</span><span class="p">:[</span>
+                       <span class="p">{</span>
+                          <span class="s2">"accountId"</span><span class="ss">:"16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836"</span><span class="p">,</span>
+                          <span class="s2">"externalKey"</span><span class="ss">:"1-16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836-827963"</span><span class="p">,</span>
+                          <span class="s2">"productCategory"</span><span class="ss">:"BASE"</span><span class="p">,</span>
+                          <span class="s2">"planName"</span><span class="ss">:"sports-monthly"</span>
+                       <span class="p">}</span>
+                    <span class="p">]</span>
+                 <span class="p">}</span>
+              <span class="p">]</span>
+<span class="n">requested_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">entitlement_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">billing_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">migrated</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">call_completion_sec</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">subscription</span> <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">create_entitlement_with_add_on</span><span class="p">(</span><span class="n">entitlement</span><span class="p">,</span>
+                                            <span class="n">requested_date</span><span class="p">,</span>
+                                            <span class="n">entitlement_date</span><span class="p">,</span> 
+                                            <span class="n">billing_date</span><span class="p">,</span>
+                                            <span class="n">migrated</span><span class="p">,</span> 
+                                            <span class="n">call_completion_sec</span><span class="p">,</span>                                            
+                                            <span class="n">user</span><span class="p">,</span> 
+                                            <span class="n">reason</span><span class="p">,</span> 
+                                            <span class="n">comment</span><span class="p">,</span> 
+                                            <span class="n">options</span><span class="p">)</span>                                         
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">account_id</span> <span class="o">=</span> <span class="s">'16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836'</span>
+<span class="n">subscription_a</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span>
+                              <span class="n">product_category</span><span class="o">=</span><span class="s">'BASE'</span><span class="p">,</span>
+                              <span class="n">plan_name</span><span class="o">=</span><span class="s">'sports-monthly'</span><span class="p">)</span>
+
+<span class="n">subscription_b</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span>
+                              <span class="n">product_category</span><span class="o">=</span><span class="s">'ADD_ON'</span><span class="p">,</span>
+                              <span class="n">plan_name</span><span class="o">=</span><span class="s">'super-monthly'</span><span class="p">)</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="n">subscription_a</span><span class="p">,</span> <span class="n">subscription_b</span><span class="p">]</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">create_subscription_with_add_ons</span><span class="p">(</span><span class="n">body</span><span class="p">,</span>
+                                                 <span class="n">created_by</span><span class="p">,</span>
+                                                 <span class="n">api_key</span><span class="p">,</span>
+                                                 <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A subscription resource object corresponding to the base subscription and zero or more subscription resource objects corresponding to add-on subscriptions need to be specified. Alternatively, only a list of add-on subscription resource objects may be specified along with the base subscription bundle id. Each subscription resource object needs to include <code>accountId</code> and either the <code>planName</code> or a combination of <code>productName</code>, <code>productCategory</code>,<code>billingPeriod</code> and <code>priceList</code>.</p>
@@ -762,7 +1043,195 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[
+          {
+            "baseEntitlementAndAddOns": [
+              {
+                "accountId": "886adb60-be70-40c8-b97d-1f8ecbc30a64",
+                "externalKey": "base",
+                "productName": "Sports",
+                "productCategory": "BASE",
+                "billingPeriod": "MONTHLY",
+                "priceList": "DEFAULT"
+              },
+              {
+                "accountId": "886adb60-be70-40c8-b97d-1f8ecbc30a64",
+                "productName": "OilSlick",
+                "productCategory": "ADD_ON",
+                "billingPeriod": "MONTHLY",
+                "priceList": "DEFAULT"
+              }
+            ]
+          },
+           {
+            "baseEntitlementAndAddOns": [
+              {
+                "accountId": "59afd9fe-e98d-4fb3-b5bf-21d4a2b036cd",
+                "externalKey": "createSubscriptionsWithAddOns3",
+                "productName": "Test",
+                "productCategory": "BASE",
+                "billingPeriod": "MONTHLY",
+                "priceList": "DEFAULT"
+              },
+              {
+                "accountId": "59afd9fe-e98d-4fb3-b5bf-21d4a2b036cd",
+                "productName": "TestAO",
+                "productCategory": "ADD_ON",
+                "billingPeriod": "MONTHLY",
+                "priceList": "DEFAULT"
+              }
+            ]
+          }
+        ]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/createSubscriptionsWithAddOns'</span> 
 
+OR 
+
+curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[
+          {
+            "baseEntitlementAndAddOns": [
+              {
+                "accountId": "1f635c3d-fc24-4fa8-81e0-ab646882807a",
+                "planName": "remotecontrol-monthly",  
+                "bundleId":"a8b4022c-e38c-4336-ad2f-ee15c5e18d12"
+              }
+            ]
+          },
+          {
+            "baseEntitlementAndAddOns": [
+
+              {
+                "accountId": "1f635c3d-fc24-4fa8-81e0-ab646882807a",
+                "planName": "remotecontrol-monthly",
+                "bundleId":"06892885-c276-4cf9-8311-ef0b8a2e364b"
+              }
+            ]
+          }
+        ]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/createSubscriptionsWithAddOns'</span> 
+
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
+
+<span class="no">UUID</span> <span class="n">accountId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"a3087bfb-eb81-466d-afeb-6501c30f8f85"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">base</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"test-monthly"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">Subscription</span> <span class="n">addOn1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">addOn1</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"testao-monthly"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">Subscriptions</span> <span class="n">subscriptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscriptions</span><span class="o">();</span>
+<span class="n">subscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>
+<span class="n">subscriptions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">addOn1</span><span class="o">);</span>
+
+<span class="nc">BulkSubscriptionsBundle</span> <span class="n">bulkSubscriptionsBundle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BulkSubscriptionsBundle</span><span class="o">();</span>
+<span class="n">bulkSubscriptionsBundle</span><span class="o">.</span><span class="na">setBaseEntitlementAndAddOns</span><span class="o">(</span><span class="n">subscriptions</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">base2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">base2</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">base2</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"product1-monthly"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">base2addOn1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">base2addOn1</span><span class="o">.</span><span class="na">setAccountId</span><span class="o">(</span><span class="n">accountId</span><span class="o">);</span>
+<span class="n">base2addOn1</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"product1-ao-monthly"</span><span class="o">);</span>
+<span class="n">base2addOn1</span><span class="o">.</span><span class="na">setBillCycleDayLocal</span><span class="o">(</span><span class="mi">18</span><span class="o">);</span>
+
+<span class="nc">Subscriptions</span> <span class="n">subscriptions2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscriptions</span><span class="o">();</span>
+<span class="n">subscriptions2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">base2</span><span class="o">);</span>
+<span class="n">subscriptions2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">base2addOn1</span><span class="o">);</span>
+
+<span class="nc">BulkSubscriptionsBundle</span> <span class="n">bulkSubscriptionsBundle2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BulkSubscriptionsBundle</span><span class="o">();</span>
+<span class="n">bulkSubscriptionsBundle2</span><span class="o">.</span><span class="na">setBaseEntitlementAndAddOns</span><span class="o">(</span><span class="n">subscriptions2</span><span class="o">);</span>
+
+<span class="nc">BulkSubscriptionsBundles</span> <span class="n">bulkSubscriptionsBundles</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BulkSubscriptionsBundles</span><span class="o">();</span>
+<span class="n">bulkSubscriptionsBundles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bulkSubscriptionsBundle</span><span class="o">);</span>
+<span class="n">bulkSubscriptionsBundles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bulkSubscriptionsBundle2</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">entitlementDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">LocalDate</span> <span class="n">billingDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">renameKeyIfExistsAndUnused</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">migrated</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">skipResponse</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">Boolean</span> <span class="n">callCompletion</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="kt">long</span> <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="nc">Bundles</span> <span class="n">bundles</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">createSubscriptionsWithAddOns</span><span class="o">(</span><span class="n">bulkSubscriptionsBundles</span><span class="o">,</span> 
+                                                                 <span class="n">entitlementDate</span><span class="o">,</span> 
+                                                                 <span class="n">billingDate</span><span class="o">,</span> 
+                                                                 <span class="n">renameKeyIfExistsAndUnused</span><span class="o">,</span> 
+                                                                 <span class="n">migrated</span><span class="o">,</span> 
+                                                                 <span class="n">skipResponse</span><span class="o">,</span> 
+                                                                 <span class="n">callCompletion</span><span class="o">,</span> 
+                                                                <span class="no">DEFAULT_WAIT_COMPLETION_TIMEOUT_SEC</span><span class="o">,</span> <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span>                                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">bulk_subscription_list</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="p">{</span>
+                               <span class="s2">"baseEntitlementAndAddOns"</span><span class="p">:[</span>
+                                  <span class="p">{</span>
+                                     <span class="s2">"accountId"</span><span class="ss">:"16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836"</span><span class="p">,</span>
+                                     <span class="s2">"externalKey"</span><span class="ss">:"1-16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836-827963"</span><span class="p">,</span>
+                                     <span class="s2">"productCategory"</span><span class="ss">:"BASE"</span><span class="p">,</span>
+                                     <span class="s2">"planName"</span><span class="ss">:"sports-monthly"</span>
+                                  <span class="p">}</span>
+                               <span class="p">]</span>
+                            <span class="p">},</span>
+                            <span class="p">{</span>
+                               <span class="s2">"baseEntitlementAndAddOns"</span><span class="p">:[</span>
+                                  <span class="p">{</span>
+                                     <span class="s2">"accountId"</span><span class="ss">:"16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836"</span><span class="p">,</span>
+                                     <span class="s2">"externalKey"</span><span class="ss">:"2-16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836-717751"</span><span class="p">,</span>
+                                     <span class="s2">"productCategory"</span><span class="ss">:"ADD_ON"</span><span class="p">,</span>
+                                     <span class="s2">"planName"</span><span class="ss">:"super-monthly"</span>
+                                  <span class="p">}</span>
+                               <span class="p">]</span>
+                            <span class="p">}</span>
+                         <span class="p">]</span>
+<span class="n">entitlement_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">billing_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">call_completion_sec</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">BulkSubscription</span><span class="p">.</span><span class="nf">create_bulk_subscriptions</span><span class="p">(</span><span class="n">bulk_subscription_list</span><span class="p">,</span> 
+                                                                  <span class="n">user</span><span class="p">,</span> 
+                                                                  <span class="n">reason</span><span class="p">,</span> 
+                                                                  <span class="n">comment</span><span class="p">,</span> 
+                                                                  <span class="n">entitlement_date</span><span class="p">,</span> 
+                                                                  <span class="n">billing_date</span><span class="p">,</span> 
+                                                                  <span class="n">call_completion_sec</span><span class="p">,</span> 
+                                                                  <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">account_id</span> <span class="o">=</span> <span class="s">'16cd9eb8-bb5d-4183-b8e0-c1d6f78dc836'</span>
+<span class="n">subscription_a</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span>
+                              <span class="n">product_category</span><span class="o">=</span><span class="s">'BASE'</span><span class="p">,</span>
+                              <span class="n">plan_name</span><span class="o">=</span><span class="s">'sports-monthly'</span><span class="p">)</span>
+
+<span class="n">subscription_b</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">account_id</span><span class="o">=</span><span class="n">account_id</span><span class="p">,</span>
+                              <span class="n">product_category</span><span class="o">=</span><span class="s">'ADD_ON'</span><span class="p">,</span>
+                              <span class="n">plan_name</span><span class="o">=</span><span class="s">'super-monthly'</span><span class="p">)</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="n">BulkSubscriptionsBundle</span><span class="p">([</span><span class="n">subscription_a</span><span class="p">,</span> <span class="n">subscription_b</span><span class="p">])</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">create_subscriptions_with_add_ons</span><span class="p">([</span><span class="n">body</span><span class="p">],</span>
+                                                  <span class="n">created_by</span><span class="p">,</span>
+                                                  <span class="n">api_key</span><span class="p">,</span>
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>One or more subscription resource object corresponding to the base subscriptions need to be specified. Additional, each base subscription resource object can include zero or more subscription resource objects corresponding to add-on subscriptions. Alternatively, only a list of add-on subscription resource objects may be specified along with the base subscription bundle id. Each subscription resource object needs to include <code>accountId</code> and either the <code>planName</code> or a combination of <code>productName</code>, <code>productCategory</code>,<code>billingPeriod</code> and <code>priceList</code>.</p>
@@ -846,11 +1315,121 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/d4a919f4-7459-494f-85e5-af8880f63e90'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"905a0636-ab63-40c0-acd4-b461b6808b5d"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">objFromJson</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscription</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                                           <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span> 
+                                                           <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription_id</span> <span class="o">=</span> <span class="s2">"161692a4-c293-410c-a92f-939c5e3dcba7"</span>
+
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">find_by_id</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'4aab9b96-c2e7-4641-a6d9-db984969201e'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">get_subscription</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"accountId"</span><span class="p">:</span><span class="s2">"581d86fc-7cfc-46f2-b6d4-4dbc1d98beb3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bundleId"</span><span class="p">:</span><span class="s2">"3b7a754c-4fe3-49a4-a56c-c8f56fc4116c"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscriptionId"</span><span class="p">:</span><span class="s2">"d4a919f4-7459-494f-85e5-af8880f63e90"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="s2">"somethingSpecial"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bundleExternalKey"</span><span class="p">:</span><span class="s2">"somethingAlsoSpecial"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"startDate"</span><span class="p">:</span><span class="s2">"2018-07-19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"productName"</span><span class="p">:</span><span class="s2">"Super"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"productCategory"</span><span class="p">:</span><span class="s2">"BASE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phaseType"</span><span class="p">:</span><span class="s2">"TRIAL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"priceList"</span><span class="p">:</span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"planName"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceType"</span><span class="p">:</span><span class="s2">"NATIVE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancelledDate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"chargedThroughDate"</span><span class="p">:</span><span class="s2">"2018-07-19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billingStartDate"</span><span class="p">:</span><span class="s2">"2018-07-19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billingEndDate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billCycleDayLocal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"events"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"d1fc7c9a-bdcd-447c-90f4-72c8de37d457"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="s2">"2018-07-19"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"plan"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"product"</span><span class="p">:</span><span class="s2">"Super"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"priceList"</span><span class="p">:</span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"START_ENTITLEMENT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedBilling"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedEntitlement"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="s2">"entitlement-service"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceStateName"</span><span class="p">:</span><span class="s2">"ENT_STARTED"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phase"</span><span class="p">:</span><span class="s2">"super-monthly-trial"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"e1cea834-9c21-450a-8ff5-8e1ebef705d1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="s2">"2018-07-19"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"plan"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"product"</span><span class="p">:</span><span class="s2">"Super"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"priceList"</span><span class="p">:</span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"START_BILLING"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedBilling"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedEntitlement"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="s2">"billing-service"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceStateName"</span><span class="p">:</span><span class="s2">"START_BILLING"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phase"</span><span class="p">:</span><span class="s2">"super-monthly-trial"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"c9045227-4638-46ca-9a4a-2d3086168505"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="s2">"2018-08-18"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"plan"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"product"</span><span class="p">:</span><span class="s2">"Super"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"priceList"</span><span class="p">:</span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"PHASE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedBilling"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isBlockedEntitlement"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="s2">"entitlement+billing-service"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"serviceStateName"</span><span class="p">:</span><span class="s2">"PHASE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phase"</span><span class="p">:</span><span class="s2">"super-monthly-evergreen"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"priceOverrides"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prices"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"planName"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phaseName"</span><span class="p">:</span><span class="s2">"super-monthly-trial"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phaseType"</span><span class="p">:</span><span class="s2">"TRIAL"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fixedPrice"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recurringPrice"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"usagePrices"</span><span class="p">:[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"planName"</span><span class="p">:</span><span class="s2">"super-monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phaseName"</span><span class="p">:</span><span class="s2">"super-monthly-evergreen"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phaseType"</span><span class="p">:</span><span class="s2">"EVERGREEN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fixedPrice"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"recurringPrice"</span><span class="p">:</span><span class="mf">1000.00</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"usagePrices"</span><span class="p">:[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -886,11 +1465,92 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s1">'http://localhost:8080/1.0/kb/subscriptions?externalKey=somethingSpecial'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="nc">String</span> <span class="n">externalKey</span> <span class="o">=</span> <span class="s">"somethingSpecial"</span><span class="o">;</span>
+<span class="nc">Subscription</span> <span class="n">objFromJson</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscriptionByKey</span><span class="o">(</span><span class="n">externalKey</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">external_key</span> <span class="o">=</span> <span class="s2">"somethingSpecial"</span>
+<span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">find_by_external_key</span><span class="p">(</span><span class="n">external_key</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">external_key</span> <span class="o">=</span> <span class="s">'somethingSpecial'</span>
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">get_subscription_by_key</span><span class="p">(</span><span class="n">external_key</span><span class="p">,</span> <span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1f979085-1765-471b-878a-5f640db4d831"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bundleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8815e8c0-afab-41b9-b793-cb8fef2382e4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bundleExternalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8815e8c0-afab-41b9-b793-cb8fef2382e4"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"subscriptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e5c5339-1cad-46c6-ab18-3d5ddc1b2414"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"externalKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"somethingSpecial"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-08"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pistol"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"productCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phaseType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EVERGREEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"priceList"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notrial"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"planName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NATIVE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cancelledDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"chargedThroughDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-08"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"billingStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-08"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"billingEndDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"billCycleDayLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d24928e-790d-4dc9-8a88-c4eaa56de392"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-08"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pistol"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"priceList"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"START_ENTITLEMENT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isBlockedBilling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isBlockedEntitlement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entitlement-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"serviceStateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENT_STARTED"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial-evergreen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3aaa3239-2bc6-4f04-977b-fce5de098af8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONTHLY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-08"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pistol"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"priceList"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"START_BILLING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isBlockedBilling"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isBlockedEntitlement"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"serviceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing-service"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"serviceStateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"START_BILLING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phase"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial-evergreen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"priceOverrides"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"planName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phaseName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pistol-monthly-notrial-evergreen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phaseType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EVERGREEN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fixedPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recurringPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.95</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"usagePrices"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -937,7 +1597,54 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ "billCycleDayLocal": 16 }'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/bcd'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"905a0636-ab63-40c0-acd4-b461b6808b5d"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">updatedSubscription</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">updatedSubscription</span><span class="o">.</span><span class="na">setSubscriptionId</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">);</span>
+<span class="n">updatedSubscription</span><span class="o">.</span><span class="na">setBillCycleDayLocal</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">effectiveFromDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">updateSubscriptionBCD</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                      <span class="n">updatedSubscription</span><span class="o">,</span> 
+                                      <span class="n">effectiveFromDate</span><span class="o">,</span> 
+                                      <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription</span>                      <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">subscription_id</span>      <span class="o">=</span> <span class="s2">"161692a4-c293-410c-a92f-939c5e3dcba7"</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">bill_cycle_day_local</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="n">effective_from_date</span>  <span class="o">=</span> <span class="s1">'2018-08-16'</span>
+<span class="n">force_past_effective_date</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">update_bcd</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> 
+                        <span class="n">reason</span><span class="p">,</span> 
+                        <span class="n">comment</span><span class="p">,</span> 
+                        <span class="n">effective_from_date</span><span class="p">,</span> 
+                        <span class="n">force_past_effective_date</span><span class="p">,</span> 
+                        <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'161692a4-c293-410c-a92f-939c5e3dcba7'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="n">subscription_id</span><span class="p">,</span>
+                    <span class="n">bill_cycle_day_local</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">update_subscription_bcd</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                        <span class="n">body</span><span class="p">,</span>
+                                        <span class="n">created_by</span><span class="p">,</span>
+                                        <span class="n">api_key</span><span class="p">,</span>
+                                        <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>The new BCD needs to be specified in the request body via the <code>billCycleDayLocal</code> field.</p>
@@ -986,7 +1693,30 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "quantity": "2" 
+        }'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/c20715fa-8d69-488d-a094-51da0cdf999b/quantity'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"f0143401-5b9b-41d1-b9c0-8513f1f0cf0b"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">body</span><span class="o">.</span><span class="na">setQuantity</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="nc">LocalDate</span> <span class="n">effectiveFromDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">updateSubscriptionQuantity</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> <span class="n">body</span><span class="o">,</span> <span class="n">effectiveFromDate</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">TODO</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>The quantity needs to be specified in the request body via the <code>quantity</code> field.</p>
@@ -1033,7 +1763,77 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "productName": "Sports", 
+            "billingPeriod": "MONTHLY", 
+            "priceList": "DEFAULT"
+        }'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"905a0636-ab63-40c0-acd4-b461b6808b5d"</span><span class="o">);</span>
+
+<span class="nc">Subscription</span> <span class="n">newInput</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Subscription</span><span class="o">();</span>
+<span class="n">newInput</span><span class="o">.</span><span class="na">setSubscriptionId</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">);</span>
+
+<span class="c1">// Specify the product, billing period and price list</span>
+<span class="n">newInput</span><span class="o">.</span><span class="na">setProductName</span><span class="o">(</span><span class="s">"Shotgun"</span><span class="o">);</span>
+<span class="n">newInput</span><span class="o">.</span><span class="na">setBillingPeriod</span><span class="o">(</span><span class="nc">BillingPeriod</span><span class="o">.</span><span class="na">MONTHLY</span><span class="o">);</span>
+<span class="n">newInput</span><span class="o">.</span><span class="na">setPriceList</span><span class="o">(</span><span class="s">"DEFAULT"</span><span class="o">);</span>
+
+<span class="c1">// Alternatively, you can specify the plan name</span>
+<span class="n">newInput</span><span class="o">.</span><span class="na">setPlanName</span><span class="o">(</span><span class="s">"shotgun-monthly"</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">requestedDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="c1">//specify either requestedDate or BillingActionPolicy</span>
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">changeSubscriptionPlan</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                       <span class="n">newInput</span><span class="o">,</span> 
+                                       <span class="n">requestedDate</span><span class="o">,</span> 
+                                       <span class="nc">BillingActionPolicy</span><span class="o">.</span><span class="na">IMMEDIATE</span><span class="o">,</span> 
+                                       <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                       <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">input</span> <span class="o">=</span> <span class="p">{</span>
+           <span class="ss">:productName</span> <span class="o">=&gt;</span> <span class="s1">'Super'</span><span class="p">,</span> 
+           <span class="ss">:billingPeriod</span> <span class="o">=&gt;</span> <span class="s1">'MONTHLY'</span><span class="p">,</span> 
+           <span class="ss">:priceList</span> <span class="o">=&gt;</span> <span class="s1">'DEFAULT'</span>
+         <span class="p">}</span>
+
+<span class="n">requested_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">billing_policy</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">call_completion</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">target_phase_type</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">change_plan</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> 
+                         <span class="n">user</span><span class="p">,</span> 
+                         <span class="n">reason</span><span class="p">,</span> 
+                         <span class="n">comment</span><span class="p">,</span> 
+                         <span class="n">requested_date</span><span class="p">,</span> 
+                         <span class="n">billing_policy</span><span class="p">,</span>
+                         <span class="n">target_phase_type</span><span class="p">,</span> 
+                         <span class="n">call_completion</span><span class="p">,</span> 
+                         <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'97278000-72fd-45d7-9b67-e44690bdb074'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">Subscription</span><span class="p">(</span><span class="n">product_name</span><span class="o">=</span><span class="s">'Super'</span><span class="p">,</span>
+                    <span class="n">billing_period</span><span class="o">=</span><span class="s">'MONTHLY'</span><span class="p">,</span>
+                    <span class="n">price_list</span><span class="o">=</span><span class="s">'DEFAULT'</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">change_subscription_plan</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                         <span class="n">body</span><span class="p">,</span>
+                                         <span class="n">created_by</span><span class="p">,</span>
+                                         <span class="n">api_key</span><span class="p">,</span>
+                                         <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A subscription resource object specifying either the <code>planName</code> or a combination of <code>productName</code>, <code>billingPeriod</code> and <code>priceList</code>. </p>
@@ -1098,7 +1898,34 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/undoChangePlan'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"1bb4b638-3886-4f73-90a5-89eb6d1bcf7f"</span><span class="o">);</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">undoChangeSubscriptionPlan</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                           <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                           <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription</span><span class="p">.</span><span class="nf">undo_change_plan</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> 
+                              <span class="n">reason</span><span class="p">,</span> 
+                              <span class="n">comment</span><span class="p">,</span> 
+                              <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'f5bb14ed-c6e8-4895-8d4e-34422e12cdfa'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">undo_change_subscription_plan</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                              <span class="n">created_by</span><span class="p">,</span>
+                                              <span class="n">api_key</span><span class="p">,</span>
+                                              <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None. </p>
@@ -1116,7 +1943,49 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"905a0636-ab63-40c0-acd4-b461b6808b5d"</span><span class="o">);</span>
+<span class="nc">LocalDate</span> <span class="n">requestedDate</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">EntitlementActionPolicy</span> <span class="n">entitlementPolicy</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">BillingActionPolicy</span> <span class="n">billingPolicy</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">cancelSubscriptionPlan</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span>
+                                       <span class="n">requestedDate</span><span class="o">,</span> 
+                                       <span class="n">entitlementPolicy</span><span class="o">,</span> 
+                                       <span class="n">billingPolicy</span><span class="o">,</span> 
+                                       <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                       <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">requested_date</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">entitlement_policy</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">billing_policy</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="n">use_requested_date_for_billing</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">cancel</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> 
+                    <span class="n">reason</span><span class="p">,</span> 
+                    <span class="n">comment</span><span class="p">,</span> 
+                    <span class="n">requested_date</span><span class="p">,</span> 
+                    <span class="n">entitlement_policy</span><span class="p">,</span> 
+                    <span class="n">billing_policy</span><span class="p">,</span> 
+                    <span class="n">use_requested_date_for_billing</span><span class="p">,</span> 
+                    <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'ee508b5b-46b8-42a7-8988-16c0470de4ae'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">cancel_subscription_plan</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span> 
+                                         <span class="n">created_by</span><span class="p">,</span>
+                                         <span class="n">api_key</span><span class="p">,</span>
+                                         <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1215,7 +2084,34 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/uncancel'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"1bb4b638-3886-4f73-90a5-89eb6d1bcf7f"</span><span class="o">);</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="no">NULL_PLUGIN_PROPERTIES</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">uncancelSubscriptionPlan</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                         <span class="no">NULL_PLUGIN_PROPERTIES</span><span class="o">,</span> 
+                                         <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription</span><span class="p">.</span><span class="nf">uncancel</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> 
+                      <span class="n">reason</span><span class="p">,</span> 
+                      <span class="n">comment</span><span class="p">,</span> 
+                      <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'f5bb14ed-c6e8-4895-8d4e-34422e12cdfa'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">uncancel_subscription_plan</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                           <span class="n">created_by</span><span class="p">,</span>
+                                           <span class="n">api_key</span><span class="p">,</span>
+                                           <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None. </p>
@@ -1235,11 +2131,88 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{ 
+            "stateName": "STATE",
+            "service": "ServiceStateService",
+            "isBlockChange": false,
+            "isBlockEntitlement": false,
+            "isBlockBilling": false
+    }'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/block'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"161692a4-c293-410c-a92f-939c5e3dcba7"</span><span class="o">);</span>
+
+<span class="nc">BlockingState</span> <span class="n">blockingState</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BlockingState</span><span class="o">();</span>
+<span class="n">blockingState</span><span class="o">.</span><span class="na">setStateName</span><span class="o">(</span><span class="s">"STATE1"</span><span class="o">);</span>
+<span class="n">blockingState</span><span class="o">.</span><span class="na">setService</span><span class="o">(</span><span class="s">"ServiceStateService"</span><span class="o">);</span>
+<span class="n">blockingState</span><span class="o">.</span><span class="na">setIsBlockChange</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="n">blockingState</span><span class="o">.</span><span class="na">setIsBlockBilling</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="n">blockingState</span><span class="o">.</span><span class="na">setIsBlockEntitlement</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+
+<span class="nc">LocalDate</span> <span class="n">requestedDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LocalDate</span><span class="o">(</span><span class="s">"2013-08-01"</span><span class="o">);</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">pluginProperty</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyMap</span><span class="o">();</span>
+
+<span class="nc">BlockingStates</span> <span class="n">result</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">addSubscriptionBlockingState</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span>
+                                                                     <span class="n">blockingState</span><span class="o">,</span>
+                                                                     <span class="n">requestedDate</span><span class="o">,</span>
+                                                                     <span class="n">pluginProperty</span><span class="o">,</span>
+                                                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">subscription</span> <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">Subscription</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">subscription</span><span class="p">.</span><span class="nf">subscription_id</span> <span class="o">=</span> <span class="s2">"161692a4-c293-410c-a92f-939c5e3dcba7"</span>
+
+<span class="n">state_name</span> <span class="o">=</span> <span class="s1">'STATE1'</span>
+<span class="n">service</span> <span class="o">=</span> <span class="s1">'ServiceStateService'</span>
+<span class="n">block_change</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">block_entitlement</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">block_billing</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">requested_date</span> <span class="o">=</span> <span class="kp">nil</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">set_blocking_state</span><span class="p">(</span><span class="n">state_name</span><span class="p">,</span> 
+                                <span class="n">service</span><span class="p">,</span> 
+                                <span class="n">block_change</span><span class="p">,</span> 
+                                <span class="n">block_entitlement</span><span class="p">,</span> 
+                                <span class="n">block_billing</span><span class="p">,</span> 
+                                <span class="n">requested_date</span><span class="p">,</span> 
+                                <span class="n">user</span><span class="p">,</span> 
+                                <span class="n">reason</span><span class="p">,</span>
+                                <span class="n">comment</span><span class="p">,</span> 
+                                <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">BlockingState</span><span class="p">(</span><span class="n">state_name</span><span class="o">=</span><span class="s">'STATE1'</span><span class="p">,</span>
+                     <span class="n">service</span><span class="o">=</span><span class="s">'ServiceStateService'</span><span class="p">,</span>
+                     <span class="n">is_block_change</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                     <span class="n">is_block_entitlement</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                     <span class="n">is_block_billing</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">add_subscription_blocking_state</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                                <span class="n">body</span><span class="p">,</span>
+                                                <span class="n">created_by</span><span class="p">,</span>
+                                                <span class="n">api_key</span><span class="p">,</span>
+                                                <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A blocking state resource representing the intended new blocking state. For example,</p>
-
+<div class="highlight"><pre class="highlight plaintext"><code>{
+  "blockedId": "943c4fd0-9000-4975-a3a8-09712223e1f8",
+  "stateName": "STATE1",
+  "service": "ServiceStateService",
+  "isBlockChange": false,
+  "isBlockEntitlement": false,
+  "isBlockBilling": true,
+  "effectiveDate": "2020-07-18T18:22:30.376Z",
+  "type": "SUBSCRIPTION"
+}
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1275,7 +2248,58 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "objectId": "77e23878-8b9d-403b-bf31-93003e125712",
+            "objectType": "SUBSCRIPTION",
+            "name": "Test Custom Field",
+            "value": "test_value"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
+
+<span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="no">EMPTY_AUDIT_LOGS</span> <span class="o">=</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">();</span>
+
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">CustomField</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> 
+                                 <span class="n">subscriptionId</span><span class="o">,</span> 
+                                 <span class="nc">ObjectType</span><span class="o">.</span><span class="na">SUBSCRIPTION</span><span class="o">,</span> 
+                                 <span class="s">"Test Custom Field"</span><span class="o">,</span> 
+                                 <span class="s">"test_value"</span><span class="o">,</span> 
+                                 <span class="no">EMPTY_AUDIT_LOGS</span><span class="o">));</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">createSubscriptionCustomFields</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                               <span class="n">customFields</span><span class="o">,</span> 
+                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span> <span class="o">=</span> <span class="no">KillBillClient</span><span class="o">::</span><span class="no">Model</span><span class="o">::</span><span class="no">CustomFieldAttributes</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">object_type</span> <span class="o">=</span> <span class="s1">'SUBSCRIPTION'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Custom Field'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_value'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">add_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span> 
+                              <span class="n">user</span><span class="p">,</span>
+                              <span class="n">reason</span><span class="p">,</span>
+                              <span class="n">comment</span><span class="p">,</span>
+                              <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">create_subscription_custom_fields</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                                  <span class="p">[</span><span class="n">body</span><span class="p">],</span>
+                                                  <span class="n">created_by</span><span class="p">,</span>
+                                                  <span class="n">api_key</span><span class="p">,</span>
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A list of objects giving the name and value of the custom field, or fields, to be added. For example:</p>
@@ -1304,11 +2328,44 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">CustomField</span><span class="o">&gt;</span> <span class="n">customFields</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscriptionCustomFields</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span>
+                                                                             <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">NONE</span><span class="o">,</span>
+                                                                             <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">custom_fields</span><span class="p">(</span><span class="n">audit</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'642ee0ac-972b-4cdf-b9ae-ab8f9bb9bc05'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">get_subscription_custom_fields</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                               <span class="n">api_key</span><span class="p">,</span>
+                                               <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="s2">"439ed0f8-9b37-4688-bace-e2595b1d3801"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"objectId"</span><span class="p">:</span><span class="s2">"77e23878-8b9d-403b-bf31-93003e125712"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"objectType"</span><span class="p">:</span><span class="s2">"SUBSCRIPTION"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Test Custom Field"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"test_value"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1342,7 +2399,55 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> PUT <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[{ 
+            "customFieldId": "439ed0f8-9b37-4688-bace-e2595b1d3801",
+            "value": "NewValue"
+    }]'</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/customFields'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+
+<span class="nc">CustomField</span> <span class="n">customFieldModified</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomField</span><span class="o">();</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setCustomFieldId</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+<span class="n">customFieldModified</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="s">"NewValue"</span><span class="o">);</span>
+<span class="nc">CustomFields</span> <span class="n">customFields</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFields</span><span class="o">();</span>
+<span class="n">customFields</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">customFieldModified</span><span class="o">);</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">modifySubscriptionCustomFields</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                               <span class="n">customFields</span><span class="o">,</span> 
+                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field</span><span class="p">.</span><span class="nf">custom_field_id</span> <span class="o">=</span> <span class="s1">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Test Modify'</span>
+<span class="n">custom_field</span><span class="p">.</span><span class="nf">value</span> <span class="o">=</span> <span class="s1">'test_modify_value'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">modify_custom_field</span><span class="p">(</span><span class="n">custom_field</span><span class="p">,</span>                                                                                            
+                                 <span class="n">user</span><span class="p">,</span> 
+                                 <span class="n">reason</span><span class="p">,</span>
+                                 <span class="n">comment</span><span class="p">,</span> 
+                                 <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+<span class="n">custom_field_id</span> <span class="o">=</span> <span class="s">'7fb3dde7-0911-4477-99e3-69d142509bb9'</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">CustomField</span><span class="p">(</span><span class="n">custom_field_id</span><span class="o">=</span><span class="n">custom_field_id</span><span class="p">,</span> 
+                   <span class="n">name</span><span class="o">=</span><span class="s">'Test Custom Field'</span><span class="p">,</span> 
+                   <span class="n">value</span><span class="o">=</span><span class="s">'test_value'</span><span class="p">)</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">modify_subscription_custom_fields</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                                  <span class="p">[</span><span class="n">body</span><span class="p">],</span>
+                                                  <span class="n">created_by</span><span class="p">,</span>
+                                                  <span class="n">api_key</span><span class="p">,</span>
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A list of objects specifying the id and the new value for the custom fields to be modified. For example:</p>
@@ -1368,7 +2473,38 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/customFields?customField=439ed0f8-9b37-4688-bace-e2595b1d3801'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"cca08349-8b26-41c7-bfcc-2e3cf70a0f28"</span><span class="o">);</span>
+<span class="no">UUID</span> <span class="n">customFieldsId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"9913e0f6-b5ef-498b-ac47-60e1626eba8f"</span><span class="o">);</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="no">UUID</span><span class="o">&gt;</span> <span class="n">customFieldsList</span> <span class="o">=</span> <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">customFieldsId</span><span class="o">);</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">deleteSubscriptionCustomFields</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                               <span class="n">customFieldsList</span><span class="o">,</span> 
+                                               <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">custom_field_id</span> <span class="o">=</span> <span class="n">custom_field</span><span class="p">.</span><span class="nf">id</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">remove_custom_field</span><span class="p">(</span><span class="n">custom_field_id</span><span class="p">,</span>                                                                                            
+                                 <span class="n">user</span><span class="p">,</span> 
+                                 <span class="n">reason</span><span class="p">,</span>
+                                 <span class="n">comment</span><span class="p">,</span> 
+                                 <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'4927c1a2-3959-4f71-98e7-ce3ba19c92ac'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">delete_subscription_custom_fields</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                                  <span class="n">created_by</span><span class="p">,</span>
+                                                  <span class="n">api_key</span><span class="p">,</span>
+                                                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1406,7 +2542,43 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> POST <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'[
+            "353752dd-9041-4450-b782-a8bb03a923c8"
+        ]'</span> <span class="se">\</span>
+  <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/tags'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"1bb4b638-3886-4f73-90a5-89eb6d1bcf7f"</span><span class="o">);</span>
+<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">createSubscriptionTags</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                                     <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
+                                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">tag_name</span> <span class="o">=</span> <span class="s1">'foo'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">add_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span>
+                     <span class="n">user</span><span class="p">,</span>
+                     <span class="n">reason</span><span class="p">,</span>
+                     <span class="n">comment</span><span class="p">,</span>
+                     <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'28af3cb9-275b-4ac4-a55d-a0536e479069'</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">create_subscription_tags</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                         <span class="n">tag</span><span class="p">,</span>
+                                         <span class="n">created_by</span><span class="p">,</span>
+                                         <span class="n">api_key</span><span class="p">,</span>
+                                         <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Request Body</strong></p>
 
 <p>A JSON array containing one or more strings giving the UUID of tag definitions for the user tags to be added.</p>
@@ -1428,11 +2600,50 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/tags'</span> 
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"1bb4b638-3886-4f73-90a5-89eb6d1bcf7f"</span><span class="o">);</span>
+
+<span class="nc">Boolean</span> <span class="n">includedDeleted</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// Will not include deleted tags</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Tag</span><span class="o">&gt;</span> <span class="n">tags</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscriptionTags</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                                     <span class="n">includedDeleted</span><span class="o">,</span> 
+                                                     <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">FULL</span><span class="o">,</span> 
+                                                     <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">included_deleted</span> <span class="o">=</span> <span class="kp">false</span>
+<span class="n">audit</span> <span class="o">=</span> <span class="s1">'NONE'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">tags</span><span class="p">(</span><span class="n">included_deleted</span><span class="p">,</span>
+                  <span class="n">audit</span><span class="p">,</span>
+                  <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'f5bb14ed-c6e8-4895-8d4e-34422e12cdfa'</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">get_subscription_tags</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                      <span class="n">api_key</span><span class="p">,</span>
+                                      <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"tagId"</span><span class="p">:</span><span class="s2">"d0513754-56a9-4694-abb1-3ac46c72e861"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="s2">"SUBSCRIPTION"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="s2">"77e23878-8b9d-403b-bf31-93003e125712"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="s2">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionName"</span><span class="p">:</span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1473,7 +2684,40 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-X</span> DELETE <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+    <span class="s1">'http://127.0.0.1:8080/1.0/kb/subscriptions/77e23878-8b9d-403b-bf31-93003e125712/tags?tagDef=353752dd-9041-4450-b782-a8bb03a923c8'</span>  
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"1bb4b638-3886-4f73-90a5-89eb6d1bcf7f"</span><span class="o">);</span>
+
+<span class="no">UUID</span> <span class="n">tagDefinitionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="o">);</span>
+
+<span class="n">subscriptionApi</span><span class="o">.</span><span class="na">deleteSubscriptionTags</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span> 
+                                       <span class="nc">List</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">tagDefinitionId</span><span class="o">),</span> 
+                                       <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="n">tag_name</span> <span class="o">=</span> <span class="s1">'foo'</span>
+
+<span class="n">subscription</span><span class="p">.</span><span class="nf">remove_tag</span><span class="p">(</span><span class="n">tag_name</span><span class="p">,</span>
+                        <span class="n">user</span><span class="p">,</span>
+                        <span class="n">reason</span><span class="p">,</span>
+                        <span class="n">comment</span><span class="p">,</span>
+                        <span class="n">options</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">subscriptionApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">SubscriptionApi</span><span class="p">()</span>
+<span class="n">subscription_id</span> <span class="o">=</span> <span class="s">'f5bb14ed-c6e8-4895-8d4e-34422e12cdfa'</span>
+<span class="n">tag</span> <span class="o">=</span> <span class="p">[</span><span class="s">"353752dd-9041-4450-b782-a8bb03a923c8"</span><span class="p">]</span>
+
+<span class="n">subscriptionApi</span><span class="p">.</span><span class="n">delete_subscription_tags</span><span class="p">(</span><span class="n">subscription_id</span><span class="p">,</span>
+                                         <span class="n">created_by</span><span class="p">,</span>
+                                         <span class="n">api_key</span><span class="p">,</span>
+                                         <span class="n">api_secret</span><span class="p">,</span>
+                                         <span class="n">tag_def</span><span class="o">=</span><span class="n">tag</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <table><thead>
@@ -1509,11 +2753,78 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://localhost:8080/1.0/kb/subscriptions/70b6856e-6938-495f-9ae9-0a8ec0571c37/auditLogsWithHistory"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"bc9b98e8-7497-4330-aa42-1fbc71a3d19c"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">auditLog</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscriptionAuditLogsWithHistory</span><span class="o">(</span><span class="n">subscriptionId</span><span class="o">,</span>                                                                                                                                                                           <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70b6856e-6938-495f-9ae9-0a8ec0571c37"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1f03e074-dea1-45c5-aee3-c9464886f476"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bundleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1b329c7-7dcf-466c-aaca-47bff304dab0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bundleStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"chargedThroughDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"migrated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTIONS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPDATE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70b6856e-6938-495f-9ae9-0a8ec0571c37"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SubscriptionBaseTransition"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1f03e074-dea1-45c5-aee3-c9464886f476"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bundleId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1b329c7-7dcf-466c-aaca-47bff304dab0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BASE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"bundleStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"chargedThroughDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-22T23:35:14.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"migrated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTIONS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -1531,11 +2842,56 @@ to realign invoicing, let&#39;s say on the 16th. </p>
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://localhost:8080/1.0/kb/subscriptions/events/9a1c85d5-beba-40c8-9268-f73e09c24007/auditLogsWithHistory"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">org.killbill.billing.client.api.gen.SubscriptionApi</span><span class="o">;</span>
+<span class="kd">protected</span> <span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span><span class="o">;</span>
 
+<span class="no">UUID</span> <span class="n">subscriptionEventId</span> <span class="o">=</span> <span class="no">UUID</span><span class="o">.</span><span class="na">fromString</span><span class="o">(</span><span class="s">"b4b6f990-4456-4009-9e6c-9825a99a1f25"</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AuditLog</span><span class="o">&gt;</span> <span class="n">eventAuditLog</span> <span class="o">=</span> <span class="n">subscriptionApi</span><span class="o">.</span><span class="na">getSubscriptionEventAuditLogsWithHistory</span><span class="o">(</span><span class="n">subscriptionEventId</span><span class="o">,</span> <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION_EVENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a1c85d5-beba-40c8-9268-f73e09c24007"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1f03e074-dea1-45c5-aee3-c9464886f476"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1358</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"totalOrdering"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API_USER"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"userType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREATE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"effectiveDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-22T22:38:10.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"subscriptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70b6856e-6938-495f-9ae9-0a8ec0571c37"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"planName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo-monthly"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phaseName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo-monthly-evergreen"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"priceListName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEFAULT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billingCycleDayLocal"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION_EVENTS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIPTION_EVENT_HISTORY"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -1596,6 +2952,7 @@ to realign invoicing, let&#39;s say on the 16th. </p>
         let h2Occurence = 0;
 
         content.each((index, element) => {
+          console.log(element.classList)
           if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
             allSections.push(oneSection);
             oneSection = [];
@@ -1610,7 +2967,7 @@ to realign invoicing, let&#39;s say on the 16th. </p>
       }
 
       setTimeout(() => {
-        restructureDOM()
+        restructureDOM();
       }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>

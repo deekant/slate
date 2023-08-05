@@ -451,7 +451,13 @@ such as .NET are also available. Note that code examples for Curl, Java, Ruby an
 you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <code>8080</code>. It is straightforward to substitute a different IP address or port number if necessary.</p>
 
 <p>Kill Bill supports the <code>https</code> protocol, but here all examples are shown using <code>http</code>.</p>
-
+<div class="highlight"><pre class="highlight java tab-java"><code><span class="c1">//</span>
+<span class="c1">// You can find the java client on github: https://github.com/killbill/killbill-client-java</span>
+<span class="c1">//</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="c1">#</span>
+<span class="c1"># You can find the ruby client on github: https://github.com/killbill/killbill-client-ruby</span>
+<span class="c1">#</span>
+</code></pre></div>
 <p>The description of the API in this documentation is limited to the most common use cases and does not include advanced features that we have crafted over the years from all the use cases we have seen from our users.</p>
 
 <p>For questions about API use, or to report bugs, you can subscribe to the <a href="https://groups.google.com/forum/#!forum/killbilling-users">Kill Bill user mailing list</a>.</p>
@@ -483,7 +489,113 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
 <blockquote>
 <p>Specifying the basic authentication headers and multi-tenancy headers:</p>
 </blockquote>
-<h2 id='resource-ids-and-external-keys'>Resource IDs and External Keys</h2>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="nt">-u</span> admin:password <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+...
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">KillBillHttpClient</span> <span class="n">killBillHttpClient</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">KillBillHttpClient</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"http://%s:%d"</span><span class="o">,</span> <span class="s">"127.0.0.1"</span><span class="o">,</span> <span class="mi">8080</span><span class="o">),</span>
+                                                               <span class="n">username</span><span class="o">,</span>
+                                                               <span class="n">password</span><span class="o">,</span>
+                                                               <span class="n">apiKey</span><span class="o">,</span>
+                                                               <span class="n">apiSecret</span><span class="o">,</span>
+                                                               <span class="kc">null</span><span class="o">,</span>
+                                                               <span class="kc">null</span><span class="o">,</span>
+                                                               <span class="mi">1000</span><span class="o">,</span>
+                                                               <span class="mi">5000</span><span class="o">,</span>
+                                                               <span class="mi">5000</span><span class="o">);</span>
+
+<span class="nc">AccountApi</span> <span class="n">accountApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AccountApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">AdminApi</span> <span class="n">adminApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AdminApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">BundleApi</span> <span class="n">bundleApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BundleApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">CatalogApi</span> <span class="n">catalogApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CatalogApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">CreditApi</span> <span class="n">creditApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CreditApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">CustomFieldApi</span> <span class="n">customFieldApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CustomFieldApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">ExportApi</span> <span class="n">exportApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ExportApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">InvoiceApi</span> <span class="n">invoiceApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InvoiceApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">InvoiceItemApi</span> <span class="n">invoiceItemApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InvoiceItemApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">InvoicePaymentApi</span> <span class="n">invoicePaymentApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InvoicePaymentApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">NodesInfoApi</span> <span class="n">nodesInfoApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NodesInfoApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">OverdueApi</span> <span class="n">overdueApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OverdueApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">PaymentApi</span> <span class="n">paymentApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">PaymentGatewayApi</span> <span class="n">paymentGatewayApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentGatewayApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">PaymentMethodApi</span> <span class="n">paymentMethodApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentMethodApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">PaymentTransactionApi</span> <span class="n">paymentTransactionApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentTransactionApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">PluginInfoApi</span> <span class="n">pluginInfoApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PluginInfoApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">SecurityApi</span> <span class="n">securityApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SecurityApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">SubscriptionApi</span> <span class="n">subscriptionApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SubscriptionApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">TagApi</span> <span class="n">tagApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TagApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">TagDefinitionApi</span> <span class="n">tagDefinitionApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TagDefinitionApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">TenantApi</span> <span class="n">tenantApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TenantApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+<span class="nc">UsageApi</span> <span class="n">usageApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UsageApi</span><span class="o">(</span><span class="n">killBillHttpClient</span><span class="o">);</span>
+
+<span class="c1">// Request Options example</span>
+<span class="nc">String</span> <span class="n">createdBy</span> <span class="o">=</span> <span class="s">"me"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">reason</span> <span class="o">=</span> <span class="s">"Going through my first tutorial"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">comment</span> <span class="o">=</span> <span class="s">"I like it!"</span><span class="o">;</span>
+
+<span class="nc">String</span> <span class="n">apiKey</span> <span class="o">=</span> <span class="s">"bob"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">apiSecret</span> <span class="o">=</span> <span class="s">"lazar"</span><span class="o">;</span>
+
+
+<span class="nc">RequestOptions</span> <span class="n">requestOptions</span> <span class="o">=</span> <span class="nc">RequestOptions</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+                                              <span class="o">.</span><span class="na">withCreatedBy</span><span class="o">(</span><span class="n">createdBy</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">withReason</span><span class="o">(</span><span class="n">reason</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">withComment</span><span class="o">(</span><span class="n">comment</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">withQueryParams</span><span class="o">(</span><span class="n">queryParams</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">withTenantApiKey</span><span class="o">(</span><span class="n">apiKey</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">withTenantApiSecret</span><span class="o">(</span><span class="n">apiSecret</span><span class="o">)</span>
+                                              <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'killbill_client'</span>
+
+<span class="no">KillBillClient</span><span class="p">.</span><span class="nf">url</span> <span class="o">=</span> <span class="s1">'http://127.0.0.1:8080'</span>
+
+<span class="c1"># Multi-tenancy and RBAC credentials</span>
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:username</span> <span class="o">=&gt;</span> <span class="s1">'admin'</span><span class="p">,</span>
+  <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s1">'password'</span><span class="p">,</span>
+  <span class="ss">:api_key</span> <span class="o">=&gt;</span> <span class="s1">'bob'</span><span class="p">,</span>
+  <span class="ss">:api_secret</span> <span class="o">=&gt;</span> <span class="s1">'lazar'</span>
+<span class="p">}</span>
+
+<span class="c1"># Audit log data</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s1">'me'</span>
+<span class="n">reason</span> <span class="o">=</span> <span class="s1">'Going through my first tutorial'</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="s1">'I like it!'</span>
+
+<span class="c1"># Start using....</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="c1"># Edit file: configuration.py, lines:50-62
+</span>
+<span class="c1"># Default Base url
+</span><span class="bp">self</span><span class="p">.</span><span class="n">host</span> <span class="o">=</span> <span class="s">"http://localhost:8080"</span>
+<span class="c1"># Temp file folder for downloading files
+</span><span class="bp">self</span><span class="p">.</span><span class="n">temp_folder_path</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c1"># Authentication Settings
+# dict to store API key(s)
+</span><span class="bp">self</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># dict to store API prefix (e.g. Bearer)
+</span><span class="bp">self</span><span class="p">.</span><span class="n">api_key_prefix</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># Username for HTTP basic authentication
+</span><span class="bp">self</span><span class="p">.</span><span class="n">username</span> <span class="o">=</span> <span class="s">"admin"</span>
+<span class="c1"># Password for HTTP basic authentication
+</span><span class="bp">self</span><span class="p">.</span><span class="n">password</span> <span class="o">=</span> <span class="s">"password"</span>
+
+<span class="c1">####################################################
+</span>
+<span class="c1"># Basic example using the client
+</span><span class="n">exampleApi</span> <span class="o">=</span> <span class="n">killbill</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">ExampleApi</span><span class="p">()</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">Example</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'John'</span><span class="p">,</span> <span class="n">last_name</span> <span class="o">=</span> <span class="s">'Doe'</span><span class="p">)</span>
+<span class="n">created_by</span> <span class="o">=</span> <span class="s">'me'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'bob'</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s">'lazar'</span>
+
+<span class="n">exampleApi</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">body</span><span class="p">,</span>
+                  <span class="n">created_by</span><span class="p">,</span>
+                  <span class="n">api_key</span><span class="p">,</span>
+                  <span class="n">api_secret</span><span class="p">)</span>
+</code></pre></div><h2 id='resource-ids-and-external-keys'>Resource IDs and External Keys</h2>
 <p>When a new resource is created, there are 2 IDS associated with it. Kill Bill will allocate a unique ID, and the user of the API will also be able to associate its own unique key, called the <code>external key</code>. The external key is used for 2 scenarios:</p>
 
 <ul>
@@ -519,11 +631,38 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
 <blockquote>
 <p>Request: Fetching an account specifying <code>audit=MINIMAL</code></p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="nt">-u</span> admin:password <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+<span class="s2">"http://127.0.0.1:8080/1.0/kb/accounts/e8877928-0226-488d-9272-07a5e66d897f?audit=MINIMAL"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">Account</span> <span class="n">result</span> <span class="o">=</span> <span class="n">accountApi</span><span class="o">.</span><span class="na">getAccount</span><span class="o">(</span><span class="n">accountId</span><span class="o">,</span>
+                                      <span class="kc">false</span><span class="o">,</span>
+                                      <span class="kc">false</span><span class="o">,</span>
+                                      <span class="nc">AuditLevel</span><span class="o">.</span><span class="na">MINIMAL</span><span class="o">,</span>
+                                      <span class="n">requestOptions</span><span class="o">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="no">TODO</span>  <span class="no">Api</span> <span class="n">does</span> <span class="n">not</span> <span class="n">exist</span> <span class="p">;</span><span class="o">-</span><span class="p">(</span>
 
+</code></pre></div>
 <blockquote>
 <p>Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight plaintext"><code>{
+  ...
+  "auditLogs": [
+    {
+      "changeType": "INSERT",
+      "changeDate": "2018-02-05T22:39:53.000Z",
+      "changedBy": "demo",
+      "reasonCode": null,
+      "comments": null,
+      "userToken": "4858a67e-03b0-4d94-8a8c-bcd6e8599452"
+    }
+  ]
+}  
+</code></pre></div>
 <p>Every API that retrieves information, whether associated with a specific resource, or with a list of resources,  may return audit logs.</p>
 
 <p>Audit and history information associated with a given resource is always stored atomically to ensure that if the state is changed, such audit and history information exists and is accurate.</p>
@@ -561,7 +700,28 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
 
 <blockquote>
 </blockquote>
-<h2 id='errors'>Errors</h2>
+<div class="highlight"><pre class="highlight plaintext"><code>
+# Look up version dependencies matching Kill Bill release 0.22.8:
+&gt; kpm info  --version=0.22.8
+
+Fetching info for version 0.22.8...
+Dependencies for version 0.22.8
+  killbill 0.22.8
+  killbill-oss-parent 0.143.60
+  killbill-api 0.53.17
+  killbill-plugin-api 0.26.4
+  killbill-commons 0.23.11
+  killbill-platform 0.39.15
+
+Known plugins for KB version 0.22.8
+  analytics 7.0.8
+  avatax 0.7.0
+  email-notifications 0.6.1
+  payment-test 7.0.4
+  stripe 7.0.4
+  ...
+
+</code></pre></div><h2 id='errors'>Errors</h2>
 <p>Kill Bill relies on HTTP response codes to indicate the success or failure of an API request:</p>
 
 <ul>
@@ -572,7 +732,22 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
 
 <blockquote>
 </blockquote>
-
+<div class="highlight"><pre class="highlight plaintext"><code>HTTP status code summary:
+200 - OK: A response body may be returned.
+201 - Created: Success in creating a new resource. A Location header is returned to indicate the uri that can be used to fetch the resource
+202 - Accepted: The request has been accepted and will be processed asynchronously.
+204 - No Content: The request was processed sucesfully but no response body is returned.
+400 - Bad Request: Invalid/missing parameter from client.
+401 - Unauthorized: Authorization failed.
+402 - Request Failed: Request parameter were valid but request failed -- insufficient fund on a payment request.
+404 - Not Found: The requested resource does not exist.
+409 - Conflict: The request conflicts with another request.
+422 - Unprocessable Entity: Payment control plugin aborted the call.
+500 - Unexpected system error.
+502 - Bad Gateway : Unknow failure from payment plugin (PLUGIN_FAILURE).
+503 - Service Unavailable: Kill Bill or a third party system -- e.g payment gateway -- is unavailable.
+504 - Gateway Timeout: Payment gateway timed out.
+</code></pre></div>
 <p>In addition to these error codes, the system will often return some json to provide more details about the error:</p>
 
 <ul>
@@ -635,6 +810,7 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
         let h2Occurence = 0;
 
         content.each((index, element) => {
+          console.log(element.classList)
           if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
             allSections.push(oneSection);
             oneSection = [];
@@ -649,7 +825,7 @@ you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <
       }
 
       setTimeout(() => {
-        restructureDOM()
+        restructureDOM();
       }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>

@@ -379,11 +379,24 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+     <span class="nt">-u</span> admin:password <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles/ROLE'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ROLE"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"account:*"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"invoice:trigger"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -401,7 +414,19 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+     <span class="nt">-X</span> POST <span class="se">\</span>
+     <span class="nt">-u</span> admin:password <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s1">'{
+             "role": "ROLE",
+             "permissions": ["account:*","invoice:trigger"]
+     }'</span> <span class="se">\</span>
+     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -419,7 +444,19 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-v</span> <span class="se">\</span>
+     <span class="nt">-X</span> PUT <span class="se">\</span>
+     <span class="nt">-u</span> admin:password <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Killbill-CreatedBy: demo"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s1">'{
+             "role": "ROLE",
+             "permissions": ["account:*"]
+     }'</span> <span class="se">\</span>
+     <span class="s1">'http://127.0.0.1:8080/1.0/kb/security/roles'</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code></code></pre></div>
 <p><strong>Query Parameters</strong></p>
 
 <p>None.</p>
@@ -480,6 +517,7 @@
         let h2Occurence = 0;
 
         content.each((index, element) => {
+          console.log(element.classList)
           if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
             allSections.push(oneSection);
             oneSection = [];
@@ -494,7 +532,7 @@
       }
 
       setTimeout(() => {
-        restructureDOM()
+        restructureDOM();
       }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>

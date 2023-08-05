@@ -532,11 +532,28 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tags/pagination"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<h3 id='search-tags'>Search tags</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"tagId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"212211f8-a264-4ddf-b609-709ae652aec4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ac0218e-0d2b-4c65-841f-cff8af92a100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sleepy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='search-tags'>Search tags</h3>
 <p>Searches for a specific tag</p>
 
 <p><strong>HTTP Request</strong></p>
@@ -584,11 +601,28 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tags/search/13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
-<h3 id='retrieve-tag-audit-logs'>Retrieve tag audit logs</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"tagId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13fe6f2c-91af-4635-aa9c-52e04d99b5ec"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"212211f8-a264-4ddf-b609-709ae652aec4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ac0218e-0d2b-4c65-841f-cff8af92a100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tagDefinitionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sleepy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"auditLogs"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h3 id='retrieve-tag-audit-logs'>Retrieve tag audit logs</h3>
 <p>Retrieves audit logs with history for a specific tag</p>
 
 <p><strong>HTTP Request</strong> </p>
@@ -606,11 +640,45 @@
 <blockquote>
 <p>Example Request:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl  <span class="se">\</span>
+    <span class="nt">-u</span> admin:password <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiKey: bob"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"X-Killbill-ApiSecret: lazar"</span> <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+    <span class="s2">"http://127.0.0.1:8080/1.0/kb/tags/26e22dbf7-a493-4402-b1e3-4bec54c39f31/auditLogsWithHistory"</span>
 
+</code></pre></div>
 <blockquote>
 <p>Example Response:</p>
 </blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"changeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSERT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changeDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01T06:00:05.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6e22dbf7-a493-4402-b1e3-4bec54c39f31"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"changedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_fixed_and_recurrring_items"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reasonCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closing account"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06d4fa80-f6ab-4760-aa97-2cd4ab83fd37"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01T06:00:05.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01T06:00:05.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accountRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tenantRecordId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tagDefinitionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000002"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"037a6b81-f351-4e09-b2ea-f76f2fb0189e"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCOUNT"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"historyTableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAG_HISTORY"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 
+</span></code></pre></div>
         </div>
         <div class="dark-box">
           <div id="docsearch"></div>
@@ -663,6 +731,7 @@
         let h2Occurence = 0;
 
         content.each((index, element) => {
+          console.log(element.classList)
           if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
             allSections.push(oneSection);
             oneSection = [];
@@ -677,7 +746,7 @@
       }
 
       setTimeout(() => {
-        restructureDOM()
+        restructureDOM();
       }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
