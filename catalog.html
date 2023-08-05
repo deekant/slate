@@ -962,7 +962,8 @@ a new version of this catalog. So, this functionality can also be a stepping sto
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -974,6 +975,7 @@ a new version of this catalog. So, this functionality can also be a stepping sto
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -994,6 +996,7 @@ a new version of this catalog. So, this functionality can also be a stepping sto
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 

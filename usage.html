@@ -663,7 +663,8 @@
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -675,6 +676,7 @@
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -695,6 +697,7 @@
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 

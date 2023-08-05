@@ -2559,7 +2559,8 @@ attached to various objects in the system by using tags. Tags come in 2 differen
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -2571,6 +2572,7 @@ attached to various objects in the system by using tags. Tags come in 2 differen
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -2591,6 +2593,7 @@ attached to various objects in the system by using tags. Tags come in 2 differen
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 

@@ -1571,7 +1571,8 @@ to realign invoicing, let&#39;s say on the 16th. </p>
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -1583,6 +1584,7 @@ to realign invoicing, let&#39;s say on the 16th. </p>
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -1603,6 +1605,7 @@ to realign invoicing, let&#39;s say on the 16th. </p>
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 

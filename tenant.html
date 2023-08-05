@@ -955,7 +955,8 @@ or well formatted yml or a properties file.</p>
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -967,6 +968,7 @@ or well formatted yml or a properties file.</p>
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -987,6 +989,7 @@ or well formatted yml or a properties file.</p>
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 

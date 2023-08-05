@@ -1133,7 +1133,8 @@ any <code>ADD_ON</code> subscriptions in the same bundle are also cancelled auto
             const sectionContent = document.createElement('div');
             sectionContent.classList.add('section-content')
 
-            elm.forEach((el) => {
+            elm.forEach((el, i) => {
+              console.log(el)
               if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
                 codeBlocks.append(el);
               } else {
@@ -1145,6 +1146,7 @@ any <code>ADD_ON</code> subscriptions in the same bundle are also cancelled auto
             });
 
             elem.appendChild(childElem);
+            console.log(childElem);
           });
           return elem;
         }
@@ -1165,6 +1167,7 @@ any <code>ADD_ON</code> subscriptions in the same bundle are also cancelled auto
         });
 
         const convertedNodes = toElem(allSections);
+        console.log(convertedNodes, 'convertedNodes')
         $('.content').append(convertedNodes);
       }
 
