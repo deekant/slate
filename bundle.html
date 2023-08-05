@@ -1121,32 +1121,56 @@ any <code>ADD_ON</code> subscriptions in the same bundle are also cancelled auto
         });
       })
 
-      setTimeout(() => {
-        let childs = []
-        let temp = (val) => `<div>${val}</div>`;
-        let group = document.createElement('div');
-        let groups = []
+      function restructureDOM() {
+        const toElem = (elems) => {
+          const elem = document.createElement('div');
+          elems.forEach((elm, i) => {
+            const childElem = document.createElement('div');
+            childElem.classList.add(`section-container`)
 
-        for(elem of $('.content').children()) {
-          if(elem.tagName === 'H2') {
-            groups.push(childs);
-            childs = []
-          }
-          childs.push(elem);
-        };
+            const codeBlocks = document.createElement('div');
+            codeBlocks.classList.add('code-block');
+            const sectionContent = document.createElement('div');
+            sectionContent.classList.add('section-content')
 
-        groups.map(elem => {
-          let newElem = document.createElement('div');
-          newElem.id = elem[0].id;
-          elem.map(el => {
-            newElem.appendChild(el)
+            elm.forEach((el) => {
+              if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
+                codeBlocks.append(el);
+              } else {
+                sectionContent.append(el);
+              }
+
+              childElem.append(sectionContent);
+              childElem.append(codeBlocks);
+            });
+
+            elem.appendChild(childElem);
           });
+          return elem;
+        }
 
-          $('.content').append(newElem)
-        })
+        const content = $('.content').children();
 
-        console.log(groups)
-      }, 1000)
+        let oneSection = [];
+        let allSections = [];
+        let h2Occurence = 0;
+
+        content.each((index, element) => {
+          if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
+            allSections.push(oneSection);
+            oneSection = [];
+          }
+          oneSection.push(element);
+          if(element.tagName === "H2") h2Occurence++;
+        });
+
+        const convertedNodes = toElem(allSections);
+        $('.content').append(convertedNodes);
+      }
+
+      setTimeout(() => {
+        restructureDOM()
+      }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
     <script>
