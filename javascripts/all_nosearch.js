@@ -11366,6 +11366,13 @@ under the License.
       activateLanguage(language);
       return false;
     });
+
+    $(".lang-selector select").on("change", function() {
+      let language = this.value;
+      pushURL(language);
+      activateLanguage(language);
+      return false;
+    })
   });
 })();
 

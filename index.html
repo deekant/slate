@@ -292,17 +292,17 @@
       <header class="header sticky" id="header">
         <div class="header-wrapper">
           <div class="header-logo">
-          <div class="logo-switch-wrapper">
+            <div class="logo-switch-wrapper">
               <div class="logo">
-              <a href="/">
-                <img src="images/logo/light-logo.svg" style="height:38px" alt="Kill Bill Docs" id="logo">
-              </a>
+                <a href="/">
+                  <img src="images/logo/light-logo.svg" style="height:38px" alt="Kill Bill Docs" id="logo">
+                </a>
+              </div>
+              <div class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+              </div>
             </div>
-            <div class="switch">
-              <input type="checkbox" id="theme-toggle">
-              <span class="slider round"></span>
-            </div>
-          </div>
             <div class="header-search">
               <div class="search-form-wrapper">
                 <div id="docsearch" style="height: 43px; display: flex; align-items: center; width: 100%;">
@@ -318,6 +318,12 @@
             </svg>
           </div>
             <div class="lang-selector">
+              <select class="mob-lang-selector">
+                  <option data-language-name="shell" value="shell">shell</option>
+                  <option data-language-name="java" value="java">java</option>
+                  <option data-language-name="ruby" value="ruby">ruby</option>
+                  <option data-language-name="python" value="python">python</option>
+              </select>
                   <a href="#" data-language-name="shell">shell</a>
                   <a href="#" data-language-name="java">java</a>
                   <a href="#" data-language-name="ruby">ruby</a>
@@ -439,10 +445,6 @@
 
 <p>Kill Bill also offers a set of <a href="https://github.com/killbill/killbill-api/tree/master/src/main/java/org/killbill/billing">java APIs</a> that can be used by plugins to make requests, and a set of <a href="https://github.com/killbill/killbill-plugin-api">java plugin APIs</a> for Kill Bill core to interact with the plugins. These apis are beyond the scope of this documentation.</p>
 
-<blockquote>
-<p>API client libraries</p>
-</blockquote>
-
 <p>Official libraries for the Kill Bill API are available in several languages,
 including Java, Php, Python, Ruby, Node, and Go. Community-supported libraries
 such as .NET are also available. Note that code examples for Curl, Java, Ruby and Python are shown in the right-hand column of this document.</p>
@@ -451,6 +453,10 @@ such as .NET are also available. Note that code examples for Curl, Java, Ruby an
 you have a Kill Bill server instance running on <code>127.0.0.1</code> on port <code>8080</code>. It is straightforward to substitute a different IP address or port number if necessary.</p>
 
 <p>Kill Bill supports the <code>https</code> protocol, but here all examples are shown using <code>http</code>.</p>
+
+<blockquote>
+<p>API client libraries</p>
+</blockquote>
 <div class="highlight"><pre class="highlight java tab-java"><code><span class="c1">//</span>
 <span class="c1">// You can find the java client on github: https://github.com/killbill/killbill-client-java</span>
 <span class="c1">//</span>
@@ -772,61 +778,6 @@ Known plugins for KB version 0.22.8
           $(this).find('a').attr("href", itemHref);
         });
       })
-
-      function restructureDOM() {
-        const toElem = (elems) => {
-          const elem = document.createElement('div');
-          elems.forEach((elm, i) => {
-            const childElem = document.createElement('div');
-            childElem.classList.add(`section-container`)
-
-            const codeBlocks = document.createElement('div');
-            codeBlocks.classList.add('code-block');
-            const sectionContent = document.createElement('div');
-            sectionContent.classList.add('section-content')
-
-            elm.forEach((el, i) => {
-              console.log(el)
-              if(el.tagName.toLowerCase() === "blockquote" || el.className === "highlight") {
-                codeBlocks.append(el);
-              } else {
-                sectionContent.append(el);
-              }
-
-              childElem.append(sectionContent);
-              childElem.append(codeBlocks);
-            });
-
-            elem.appendChild(childElem);
-            console.log(childElem);
-          });
-          return elem;
-        }
-
-        const content = $('.content').children();
-
-        let oneSection = [];
-        let allSections = [];
-        let h2Occurence = 0;
-
-        content.each((index, element) => {
-          console.log(element.classList)
-          if(h2Occurence !== 0 && (element.tagName === "H2" || element.id === "tenant")) {
-            allSections.push(oneSection);
-            oneSection = [];
-          }
-          oneSection.push(element);
-          if(element.tagName === "H2") h2Occurence++;
-        });
-
-        const convertedNodes = toElem(allSections);
-        console.log(convertedNodes, 'convertedNodes')
-        $('.content').append(convertedNodes);
-      }
-
-      setTimeout(() => {
-        restructureDOM();
-      }, 1000);
     </script>
     <script src='https://cdn.jsdelivr.net/npm/@docsearch/js@3'></script>
     <script>
